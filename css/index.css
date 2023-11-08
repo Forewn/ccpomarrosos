@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#nav{
+    width: 100vw;
+    position: fixed;
+    top: 1;
+    z-index: 1;
+}
+
+nav img{
+    width: 8vw;
+}
+
+.banner{
+    padding: 0;
+    margin: 0;
+}
+
+.intersection{
+    padding: 0 10% 5% 10%;
+    height: fit-content;
+}
+
+.intersection article{
+    padding: 5% 0;
+    text-align: justify;
+}
+
+.intersection h2{
+    text-align: center;
+}
+
+.intersection iframe{
+    width: 100%;
+}
+
+#registro{
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+    color: white;
+}
+
+#botones{
+    border: 1px solid white;
+    border-radius: 5px;
+    max-width: 40vw;
+    margin: 0 25%;
+    text-align: center;
+}
+
+#botones a{
+    text-decoration: none;
+    color: white;
+}
