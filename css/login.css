@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input{
+    border: none;
+    border-bottom: solid 2px black;
+    width: 90%;
+    margin: 5%;
+}
+
+img{
+    width: 100%;
+    height: 50vw;
+}
+
+.input-password {
+    position: relative;
+  }
+  
+  .input-password .bi-shield-lock, .input-password .bi-key {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #ccc;
+  }
+  
+  .input-password input {
+    padding-left: 20px;
+  }
+  
+
+  .boton{
+    border: none;
+    background-color: brown;
+    border-radius: 25px;
+    padding: 5px;
+    width: 20%;
+    margin: 0 40%;
+    min-width: fit-content;
+  }
+
+  .registerbtn{
+    display: flex;
+    align-items: end;
+  }
+
+  .registerbtn a{
+    margin-left: 80%;
+  }
