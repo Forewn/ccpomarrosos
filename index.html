@@ -2,28 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Consejo Comunal Los Pomarrosos</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <form action="php/iniciar.php" method="post" id="formulario">
-        <div class="input-password">
-            <i class="bi bi-key"></i>
-            <input type="text" placeholder="Cedula" name="cedula">
-        </div>
-        <div class="input-password">
-            <i class="bi bi-shield-lock"></i>
-            <input type="password" placeholder="Contraseña" name="contra">
-        </div>
-        <div class="registerbtn">
-            <a href="signup.html">No tienes cuenta?</a>
-        </div>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col"><input type="submit" value="Entrar" class="boton"></div>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-transparent fixed-top" id="tr">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">Consejo Comunal Los Pomarrosos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#about">Acerca de nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#services">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link text-white " href="./login.php">Iniciar Sesion</a>
+                            </div>
+                          </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/193759132-somos-un-gran-grupo-hoy-un-grupo-de-jóvenes-estudiantes-que-estudian-juntos-mientras-están-sentados.jpg" class="w-100"  alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/68068138-grupo-diverso-gente-joven-manos-pila-concepto.jpg" class="w-100"  alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/79317359-grupo-de-personas-de-la-diversidad-juntas-en-una-granja-de-vegetales-frescos-locales.jpg"  class=" w-100" alt="Image 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </form>
+        <h1 class="text-center text-white welcome">BIENVENIDO A NUESTRA COMUNIDAD</h1>
+    </header>
+    
+    <section class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="col-md-6 text-center ct">
+            <h2>Nuestra Comunidad</h2>
+            <p>Barrio El Lobo, anidado en el corazón de San Cristóbal, Estado Táchira, se erige como un tesoro cultural en esta región llena de encanto. Este rincón pintoresco ha forjado su identidad a lo largo de los años, fusionando tradición y modernidad en una mezcla armoniosa.</p>
+        </div>
+    </section>
+
+    <section class="container-fluid d-flex align-items-center justify-content-center ct2">
+        <div class="col-md-6 text-center ct">
+            <h2>Nuestra Mapa</h2>
+            <p>Nuestra Comunidad está distribuida por:</p>
+        </div>
+        
+        <div class="col-md-6">
+            <!-- Agrega el iframe de Google Maps aquí -->
+            <iframe src="https://www.google.com/maps/d/embed?mid=1yqHKjCH8ISXohaBUFKGSQjgID7o1PpI&ehbc=2E312F" width="640" height="480"></iframe>
+        </div>
+    </section>
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 10) {
+                    $("#tr").removeClass("bg-transparent").addClass("bg-primary");
+                } else {
+                    $("#tr").removeClass("bg-primary").addClass("bg-transparent");
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

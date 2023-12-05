@@ -20,11 +20,11 @@ if(mysqli_num_rows($result) > 0){
   }
   else{
     mysqli_close($conn);
-    header("Location: ../login.html");
+    header("Location: ../login.php");
   }
 }
 else{
   mysqli_close($conn);
-  header("Location: ../login.html");
+  header("Location: ../login.php");
 }
 ?>

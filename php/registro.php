@@ -23,11 +23,11 @@
             header('Location: ../admin/home.php');
         }
         else{
-            header('Location: ../signup.html');
+            header('Location: ../signup.php');
         }
     }
     else{
-        header('Location: ../signup.html');             
+        header('Location: ../signup.php');             
     }
 
 ?>
