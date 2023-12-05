@@ -34,15 +34,14 @@ img{
   }
   
 
-  .boton{
+  /* .boton{
     border: none;
-    background-color: brown;
     border-radius: 25px;
     padding: 5px;
     width: 20%;
     margin: 0 40%;
     min-width: fit-content;
-  }
+  } */
 
   .registerbtn{
     display: flex;
