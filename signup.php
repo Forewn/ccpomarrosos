@@ -4,42 +4,94 @@
         header('Location: ./admin/home.php');
     }
 ?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&family=Open+Sans:wght@300;400;500&family=Playpen+Sans:wght@100;200;300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  	<title>Login 04</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-6">
-                <form action="./php/registro.php" method="post" id="formulario">
-                    <input class="form-control" type="text" placeholder="Nombres" id="nombre" name="nombre">
-                    <input class="form-control" type="text" placeholder="Segundo nombre" id="nombre2" name="nombre2">
-                    <input class="form-control" type="text" placeholder="Apellidos" id="apellido" name="apellido">
-                    <select name="id" id="tipoID">
-                        <option value="Seleccione una opcion">Seleccione una opcion</option>
-                        <option value="V">V</option>
-                        <option value="E">E</option>
-                    </select>
-                    <input class="form-control" type="text" name="cedula" id="id" placeholder="Cedula">
-                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo">
-                    <input class="form-control" type="password" placeholder="Contraseña" id="password" name="password">
-                    <input class="form-control" type="password" placeholder="Confirmar contraseña" id="verifyPassword">
-                    <input class="form-control" type="submit" value="Registrarse">
-                </form>
-            </div>
-        </div>
-    </div>
-    <script src="js/signup_validation.js"></script>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="login-wrap p-4 p-md-5">
+			      			<div class="d-flex">
+			      				<div class="w-100">
+									<div class="colorregistro">
+			      						<h3 class="mb-4">Registrarse</h3>
+										<p>Rellena los siguientes campos para completar tu registro</p>
+									</div>
+			      				</div>
+			      			</div>
+								<form action="./php/registro.php" method="post" id="formulario">
+			      				<div class="form-group mb-3">
+									<i class='bx bx-user'></i>
+			      					<label class="label" for="name">Nombres</label>
+									<input class="form-control" type="text" placeholder="Nombre" id="nombre" name="nombre">
+									<input class="form-control" type="text" placeholder="Segundo nombre" id="nombre2" name="nombre2">
+									<i class='bx bx-user'></i>
+									<label class="label">Apellidos</label>
+									<input class="form-control" type="text" placeholder="Apellidos" id="apellido" name="apellido">
+										<div class="container mt-3">
+											<i class='bx bx-user'></i>
+											<label class="label">Cedula</label>
+										<div class="row form-group">
+											<div class="col-6">
+												<select name="id" id="tipoID">
+													<option value="Seleccione una opcion">Seleccione una opcion</option>
+													<option value="V">V</option>
+													<option value="E">E</option>
+												</select>
+											</div>
+											<div class="col-6">
+											<input class="form-control" type="text" name="cedula" id="id" placeholder="Cedula">													</div>
+										</div>
+									</div>
+										<i class='bx bx-envelope'></i>
+									<label class="label">Correo Electrónico</label>
+									<input class="form-control" type="email" name="correo" id="correo" placeholder="Correo">
+									<i class='bx bx-key'></i>
+									<label class="label">Contraseña</label>
+									<input class="form-control" type="password" placeholder="Contraseña" id="password" name="password">
+									<i class='bx bx-key'></i>
+									<label class="label">Confirmar Contraseña</label>
+									<input class="form-control" type="password" placeholder="Confirmar contraseña" id="verifyPassword">
+								</div>
+		            		<div class="form-group">
+								<input type="submit" class="form-control btn-primary rounded submit px-3" value="registrar">
+							</div>
+							</form>
+		        		</div>
+					<div class="img" style="background-image: url(img/login1.jpg);">
+						<div class=" p-3 p-lg-5 text-center d-flex align-items-center order-md-last" z-index="0">
+							<div class="text w-100">
+							<br><br>
+							<div class="colorlogin">
+								<h2>Bienvenido nuevamente a nuestra Comunidad</h2>
+								<p>¿Ya posees una cuenta?</p>
+							</div>
+						  		<a href="./login.php" class=" btn btn-primary submit px-3">Inicia Sesión</a>
+							</div>
+					    </div>
+			  		</div>
+		      	</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <script src="js/signup_validation.js"></script> -->
+<script src="js/jquery.min.login.js"></script>
+<script src="js/popper.login.js"></script>
+<script src="js/bootstrap.min.login.js"></script>
+
 </body>
 </html>
+
