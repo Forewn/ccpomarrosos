@@ -105,12 +105,14 @@ html, body{
 }
 .header-well{
 	position: relative;
+	
 }
 .header-well-icon,
 .header-well-text{
 	position: absolute;
 	top: 0;
-	color: #333;
+	color: #000000;
+	text-align: justify;
 }
 .header-well-icon{
 	left: 0;
@@ -332,9 +334,9 @@ html, body{
 	display: inline-block;
 	padding: 0 7px;
 	font-size: 21px;
-	-moz-user-select: none;
+	/*-moz-user-select: none;
 	-webkit-user-select: none;
-	-ms-user-select: none;
+	-ms-user-select: none;*/
 }
 .navBar-options-list ul li{ outline: none; }
 .navBar-options-list ul li figure,
@@ -527,9 +529,9 @@ html, body{
 	position: absolute;
 	color: rgba(0,0,0,.3);
 	transition: all .3s ease-in-out;
-	-moz-user-select: none;
+	/*-moz-user-select: none;
 	-webkit-user-select: none;
-	-ms-user-select: none;
+	-ms-user-select: none;*/
 }
 .tile-text span{
 	top: 50%;
@@ -811,8 +813,8 @@ html, body{
 	.timeline-c-box-icon{
 		left: 50%;
 		margin-left: -23px;
-		-webkit-transform: translateZ(0);
-		-webkit-backface-visibility: hidden;
+		/*-webkit-transform: translateZ(0);
+		-webkit-backface-visibility: hidden;*/
 	}
 	.timeline-c-box-content{
 		margin-left: 0;
@@ -845,4 +847,100 @@ html, body{
 		right: 122%;
 		text-align: right;
 	}
+}
+
+.cp {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+	padding: 50px;
+}
+
+.inline-container {
+    font-size: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea en pantallas más pequeñas */
+}
+
+.box {
+    flex: 1;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    text-align: center;
+	border: #5bc0de solid 2px;
+	border-radius: 5px;
+    margin: 10px;
+    padding: 20px; /* Añade un relleno para mejorar la legibilidad en dispositivos móviles */
+	height: 300px;
+	width: 300px;
+}
+
+.rg{
+	position: relative;
+	top: 30px;
+}
+
+.trw{
+	position: relative;
+	top:50px;
+	transition: transform 0.5s;
+	
+}
+
+.trw a{
+	color: #000000;
+	text-decoration: none;
+	background-color: #5bc0de;
+	padding: 8px;
+	border-radius: 10px;
+	border:none;
+	
+}
+
+.trw:hover{
+	transform: scale(1.11);
+
+}
+
+.trw a:hover{
+	color: white;
+	background-color: #3F51B5;
+	
+}
+
+.trh a{
+	color: #000000;
+	text-decoration: none;
+	background-color: #5bc0de;
+	padding: 8px;
+	border-radius: 10px;
+
+}
+
+.trh{
+	position: relative;
+	top: 20px;
+	transition: transform 0.5s;
+
+}
+.trh a:hover{
+	color: white;
+	background-color: #3F51B5;
+	
+}
+
+.trh:hover{
+	transform: scale(1.11);
+}
+
+
+/* Media query para ajustes en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .box {
+        flex-basis: 100%; /* Ocupa todo el ancho en pantallas más pequeñas */
+    }
 }
