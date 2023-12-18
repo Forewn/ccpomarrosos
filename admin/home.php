@@ -1,3 +1,18 @@
+<?php
+	session_start();
+	require_once('../php/conn.php');
+
+	if(!isset($_SESSION['id'])){
+		header("Location: ../index.html");
+	}
+
+	$sql =  "SELECT * FROM tmaper;";
+	$sql2 = "SELECT * FROM tmaper WHERE perNom IS NOT NULL;";
+	$sql3 = "SELECT * FROM tmaper WHERE carCod = 1;";
+	$admin = mysqli_num_rows(mysqli_query($conn, $sql3));
+	$cedulas = mysqli_num_rows(mysqli_query($conn, $sql));
+	$usuarios = mysqli_num_rows(mysqli_query($conn, $sql2));
+?>
 <!-- 
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
 -->
@@ -6,7 +21,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Agregar Datos</title>
+	<title>Home</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -119,7 +134,7 @@
 			<div class="full-width navLateral-bg btn-menu"></div>
 			<div class="full-width navLateral-body">
 				<div class="full-width navLateral-body-logo text-center tittles">
-					<i class="zmdi zmdi-close btn-menu"></i> Inventory 
+					<i class="zmdi zmdi-close btn-menu"></i>  
 				</div>
 				<figure class="full-width" style="height: 77px;">
 					<div class="navLateral-body-cl">
@@ -194,7 +209,17 @@
 							</a>
 							<ul class="full-width menu-principal sub-menu-options">
 								<li class="full-width">
-									<a href="./agguser_admin.html" class="full-width">
+									<a href="./listuser_admin.php" class="full-width">
+										<div class="navLateral-body-cl">
+											<i class="zmdi zmdi-account"></i>
+										</div>
+										<div class="navLateral-body-cr hide-on-tablet">
+											LISTA DE PERSONAS
+										</div>
+									</a>
+								</li>
+								<li class="full-width">
+									<a href="./agguser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -204,7 +229,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="./deleteuser_admin.html" class="full-width">
+									<a href="./deleteuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-accounts"></i>
 										</div>
@@ -214,7 +239,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="updateuser_admin.html" class="full-width">
+									<a href="./updateuser_admin.php" class="full-width"></a>
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -254,7 +279,7 @@
 									<i class="zmdi zmdi-store"></i>
 								</div>
 								<div class="navLateral-body-cr hide-on-tablet">
-									INVENTORY
+									POMARRROSOS
 								</div>
 							</a>
 						</li>
@@ -298,140 +323,120 @@
 		</section>
 	<!-- pageContent -->
 	<section class="full-width pageContent">
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-plus"></i>
-			</div>
-			<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
-				</p>
+		<section class="full-width text-center" style="padding: 40px 0;">
+			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
+			<!-- Tiles -->
+			<article class="full-width tile">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						<?php echo $admin; ?><br>
+						<small>Administradores</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-account tile-icon"></i>
+			</article>
+			<article class="full-width tile">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						<?php echo $cedulas; ?>
+						<br>
+						<small>Cedulas registradas</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-accounts tile-icon"></i>
+			</article>
+			<article class="full-width tile">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						<?php echo $usuarios; ?>
+						<br>
+						<small>Perfiles completos</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-truck tile-icon"></i>
+			</article>
+			<article class="full-width tile">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						9<br>
+						<small>Categories</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-label tile-icon"></i>
+			</article>
+			<article class="full-width tile">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						121<br>
+						<small>Products</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-washing-machine tile-icon"></i>
+			</article>
+			<article class="full-width tile">
+				<div class="tile-text">
+					<span class="text-condensedLight">
+						47<br>
+						<small>Sales</small>
+					</span>
+				</div>
+				<i class="zmdi zmdi-shopping-cart tile-icon"></i>
+			</article>
+		</section>
+		<section class="full-width" style="margin: 30px 0;">
+			<h3 class="text-center tittles">RESPONSIVE TIMELINE</h3>
+			<!-- TimeLine -->
+			<div id="timeline-c" class="timeline-c">
+				<div class="timeline-c-box">
+	                <div class="timeline-c-box-icon bg-info">
+	                    <i class="zmdi zmdi-twitter"></i>
+	                </div>
+	                <div class="timeline-c-box-content">
+	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
+	                    <p class="text-center">
+	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
+	                    </p>
+	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>05-04-2016</span>
+	                </div>
+	            </div>
+				<div class="timeline-c-box">
+	                <div class="timeline-c-box-icon bg-success">
+	                    <i class="zmdi zmdi-whatsapp"></i>
+	                </div>
+	                <div class="timeline-c-box-content">
+	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
+	                    <p class="text-center">
+	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
+	                    </p>
+	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>06-04-2016</span>
+	                </div>
+	            </div>
+	            <div class="timeline-c-box">
+	                <div class="timeline-c-box-icon bg-primary">
+	                    <i class="zmdi zmdi-facebook"></i>
+	                </div>
+	                <div class="timeline-c-box-content">
+	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
+	                    <p class="text-center">
+	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
+	                    </p>
+	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>07-04-2016</span>
+	                </div>
+	            </div>
+	            <div class="timeline-c-box">
+	                <div class="timeline-c-box-icon bg-danger">
+	                    <i class="zmdi zmdi-youtube"></i>
+	                </div>
+	                <div class="timeline-c-box-content">
+	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
+	                    <p class="text-center">
+	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
+	                    </p>
+	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>08-04-2016</span>
+	                </div>
+	            </div>
 			</div>
 		</section>
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			
-			<div class="mdl-tabs__panel is-active" id="tabNewClient">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-						<div class="full-width panel mdl-shadow--2dp">
-							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Nuevo Censo
-							</div>
-							<div class="full-width panel-content">
-								<form>
-									<h5 class="text-condensedLight">Datos de Persona</h5>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient">
-										<label class="mdl-textfield__label" for="DNIClient">Cédula de Identidad</label>
-										<span class="mdl-textfield__error">Invalid number</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
-										<label class="mdl-textfield__label" for="NameClient">Nombre</label>
-										<span class="mdl-textfield__error">Invalid name</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameClient">
-										<label class="mdl-textfield__label" for="LastNameClient">Apellido</label>
-										<span class="mdl-textfield__error">Invalid last name</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Fecha de Nacimiento</label>
-                                        <input class="mdl-textfield__input" type="date" id="addressClient1" placeholder="">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" id="addressClient2">
-										<label class="mdl-textfield__label" for="addressClient2">Serial Carnet de la Patria</label>
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient">
-										<label class="mdl-textfield__label" for="phoneClient">Teléfono</label>
-										<span class="mdl-textfield__error">Invalid phone number</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="email" id="emailClient">
-										<label class="mdl-textfield__label" for="emailClient">E-mail</label>
-										<span class="mdl-textfield__error">Invalid E-mail</span>
-									</div>
-									<h5 class="text-condensedLight">Rol Familiar</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccionar el Tipo de Rol</option>
-                                            <option value="">Padre</option>
-                                            <option value="">Madre</option>
-                                        </select>
-                                    </div>
-
-
-                                    <h5 class="text-condensedLight">Ubicación de la Persona</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccionar Calle</option>
-                                            <option value="">Calle 1</option>
-                                            <option value="">Calle 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Dirección</label>
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Número de Casa</label>
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>                                 
-                                    <h5 class="text-condensedLight">Ideología</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccione el Tipo de Voto</option>
-                                            <option value="">Voto Duro</option>
-                                            <option value="">Voto Blando</option>
-                                            <option value="">Voto Opositor</option>
-                                        </select>
-                                    </div>
-                                    <h5 class="text-condensedLight">Información del Cilindro de Gas</h5>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox" class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 10kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 18kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 27kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 43kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    
-                                    <p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
-											<i class="zmdi zmdi-check"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addClient">Add client</div>
-									</p>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
 	</section>
 </body>
 </html>

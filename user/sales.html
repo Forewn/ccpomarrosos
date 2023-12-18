@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Actualización de Datos</title>
+	<title>Sales</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -126,10 +126,10 @@
 					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
-					<!-- <span>
-						<?php echo $_SESSION['name']; ?><br>
+					<span>
+						Full Name Admin<br>
 						<small>Admin</small>
-					</span> -->
+					</span>
 				</figcaption>
 			</figure>
 			<div class="full-width tittles navLateral-body-tittle-menu">
@@ -151,31 +151,51 @@
 					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-account"></i>
+								<i class="zmdi zmdi-case"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								MI CUENTA
+								ADMINISTRATION
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="actualizar.html" class="full-width">
+								<a href="company.html" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts-alt"></i>
+										<i class="zmdi zmdi-balance"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										ACTUALIZACIÓN DE DATOS
+										COMPANY
 									</div>
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="documentos.html" class="full-width">
+								<a href="providers.html" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-folder"></i>
+										<i class="zmdi zmdi-truck"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										GENERAR DOCUMENTOS
+										PROVIDERS
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="payments.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-card"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										PAYMENTS
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="categories.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-label"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CATEGORIES
 									</div>
 								</a>
 							</li>
@@ -188,38 +208,28 @@
 								<i class="zmdi zmdi-face"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								CENSO
+								USERS
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="agregardatos.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										AGREGAR DATOS
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="eliminardatos.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ELIMINAR DATOS
-									</div>
-								</a>
-							</li>
-                            <li class="full-width">
 								<a href="admin.html" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-account"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										ACTUALIZAR DATOS
+										ADMINISTRATORS
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="client.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-accounts"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										CLIENT
 									</div>
 								</a>
 							</li>
@@ -300,37 +310,60 @@
 	<section class="full-width pageContent">
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-folder"></i>
+				<i class="zmdi zmdi-shopping-cart"></i>
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-                    Obtén tus documentos en tiempo real
-                </p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
+				</p>
 			</div>
 		</section>
-		
-        <section class="container cp">
-			
-            <div class="inline-container">
-                <div class="box">
-                    <h4>CARTA DE RESIDENCIA</h4>
-                    <img src="./assets/img/documento.jpg" width="70px" alt="cartaresidencia">
-					<div class="container-fluid trh">
-						<a href="">Descargar</a>
-					</div>
-                    
-                </div>
-					
-                <div class="box">
-                    <h4>CARTA DE AVAL</h4>
-                    <img src="./assets/img/document_3833815.png" class="rg" width="70px" alt="cartaaval">
-					<div class="container-fluid trw ">
-						<a href="">Descargar</a>
-					</div>
-                   
-                </div>
-            </div>
-        </section>
+		<div class="full-width divider-menu-h"></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric">Date</th>
+							<th>Client</th>
+							<th>Payment</th>
+							<th>Total</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">11/04/2016</td>
+							<td>Client name</td>
+							<td>Credit</td>
+							<td>$77</td>
+							<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">11/04/2016</td>
+							<td>Client name</td>
+							<td>Credit</td>
+							<td>$77</td>
+							<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">11/04/2016</td>
+							<td>Client name</td>
+							<td>Credit</td>
+							<td>$77</td>
+							<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">11/04/2016</td>
+							<td>Client name</td>
+							<td>Credit</td>
+							<td>$77</td>
+							<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</section>
 </body>
 </html>

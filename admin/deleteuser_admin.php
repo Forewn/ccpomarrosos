@@ -1,16 +1,12 @@
 <?php
 	session_start();
-	require_once('../php/conn.php');
 
 	if(!isset($_SESSION['id'])){
 		header("Location: ../index.html");
 	}
-
-	$sql =  "SELECT * FROM tmaper;";
-	$sql2 = "SELECT * FROM tmaper WHERE perNom IS NOT NULL;";
-	$cedulas = mysqli_num_rows(mysqli_query($conn, $sql));
-	$usuarios = mysqli_num_rows(mysqli_query($conn, $sql2));
+	require('../php/conn.php');
 ?>
+
 <!-- 
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
 -->
@@ -19,7 +15,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>
+	<title>Inventory</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -101,6 +97,7 @@
 	        </a>  
 	    </section>
 	</section>
+	
 	<!-- navBar -->
 	<div class="full-width navBar">
 		<div class="full-width navBar-options">
@@ -117,7 +114,7 @@
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">LogOut</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small><?php echo $_SESSION['name']; ?></small></li>
+					<li class="text-condensedLight noLink" ><small>User Name</small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -207,17 +204,7 @@
 							</a>
 							<ul class="full-width menu-principal sub-menu-options">
 								<li class="full-width">
-									<a href="./listuser_admin.html" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-account"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											LISTA DE PERSONAS
-										</div>
-									</a>
-								</li>
-								<li class="full-width">
-									<a href="./agguser_admin.html" class="full-width">
+									<a href="agguser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -227,7 +214,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="./deleteuser_admin.html" class="full-width">
+									<a href="./deleteuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-accounts"></i>
 										</div>
@@ -237,7 +224,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="updateuser_admin.html" class="full-width">
+									<a href="./updateuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -321,120 +308,60 @@
 		</section>
 	<!-- pageContent -->
 	<section class="full-width pageContent">
-		<section class="full-width text-center" style="padding: 40px 0;">
-			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
-			<!-- Tiles -->
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						2<br>
-						<small>Administradores</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-account tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						<?php echo $cedulas; ?>
-						<br>
-						<small>Cedulas registradas</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-accounts tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						<?php echo $usuarios; ?>
-						<br>
-						<small>Perfiles completos</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-truck tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						9<br>
-						<small>Categories</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-label tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						121<br>
-						<small>Products</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-washing-machine tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						47<br>
-						<small>Sales</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-shopping-cart tile-icon"></i>
-			</article>
-		</section>
-		<section class="full-width" style="margin: 30px 0;">
-			<h3 class="text-center tittles">RESPONSIVE TIMELINE</h3>
-			<!-- TimeLine -->
-			<div id="timeline-c" class="timeline-c">
-				<div class="timeline-c-box">
-	                <div class="timeline-c-box-icon bg-info">
-	                    <i class="zmdi zmdi-twitter"></i>
-	                </div>
-	                <div class="timeline-c-box-content">
-	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
-	                    <p class="text-center">
-	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
-	                    </p>
-	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>05-04-2016</span>
-	                </div>
-	            </div>
-				<div class="timeline-c-box">
-	                <div class="timeline-c-box-icon bg-success">
-	                    <i class="zmdi zmdi-whatsapp"></i>
-	                </div>
-	                <div class="timeline-c-box-content">
-	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
-	                    <p class="text-center">
-	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
-	                    </p>
-	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>06-04-2016</span>
-	                </div>
-	            </div>
-	            <div class="timeline-c-box">
-	                <div class="timeline-c-box-icon bg-primary">
-	                    <i class="zmdi zmdi-facebook"></i>
-	                </div>
-	                <div class="timeline-c-box-content">
-	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
-	                    <p class="text-center">
-	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
-	                    </p>
-	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>07-04-2016</span>
-	                </div>
-	            </div>
-	            <div class="timeline-c-box">
-	                <div class="timeline-c-box-icon bg-danger">
-	                    <i class="zmdi zmdi-youtube"></i>
-	                </div>
-	                <div class="timeline-c-box-content">
-	                    <h4 class="text-center text-condensedLight">Tittle timeline</h4>
-	                    <p class="text-center">
-	                    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta nobis rerum iure nostrum dolor. Quo totam possimus, ex, sapiente rerum vel maxime fugiat, ipsam blanditiis veniam, suscipit labore excepturi veritatis.
-	                    </p>
-	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>08-04-2016</span>
-	                </div>
-	            </div>
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-store"></i>
+			</div>
+			<div class="full-width header-well-text">
+				<p class="text-condensedLight">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
+				</p>
 			</div>
 		</section>
+		<div class="full-width divider-menu-h"></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+			<div class="container">
+					<div class="row">
+					  <div class="col-md-6 offset-md-3">
+						<form class="form-inline my-4">
+						  <div class="input-group w-100">
+							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
+							
+							<input  type="submit" id=""><i class="fas fa-search"></i>
+						  </div>
+						</form>
+					  </div>
+					</div>
+				  </div>
+				  <br>
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric">Cédula</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+							<?php
+								$sql = "SELECT * FROM tmaper WHERE perNom IS NOT NULL;";
+								$result = mysqli_query($conn, $sql);
+								while($row = mysqli_fetch_array($result)){
+									echo "<tr>";
+									echo "<td class='mdl-data-table__cell--non-numeric'>".$row['perCod']."</td>";
+									echo "<td>".$row['perNom']."</td>";
+									echo "<td>".$row['perApe']."</td>";
+									echo "<td><button class='mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect'><i class='zmdi zmdi-delete'></i></button></td>";
+								  	echo "</tr>";
+								}
+							?>					
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</section>
 </body>
 </html>

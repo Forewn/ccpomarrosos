@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Actualización de Datos</title>
+	<title>Mi Perfil</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -149,10 +149,22 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
+						<a href="miperfil.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-accounts-alt"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								MI PERFIL
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-account"></i>
 							</div>
+							
 							<div class="navLateral-body-cr hide-on-tablet">
 								MI CUENTA
 							</div>
@@ -226,16 +238,7 @@
 						</ul>
 					</li>
 					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="products.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-washing-machine"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								PRODUCTS
-							</div>
-						</a>
-					</li>
+				
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
 						<a href="sales.html" class="full-width">
@@ -300,37 +303,60 @@
 	<section class="full-width pageContent">
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-folder"></i>
+				<i class="zmdi zmdi-account text-center" ></i>
 			</div>
 			<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-                    Obtén tus documentos en tiempo real
-                </p>
+				<p class="text-condensedLight text-center">
+                       Encuentra aqui Tus datos en tiempo real			</p>
 			</div>
 		</section>
-		
-        <section class="container cp">
-			
-            <div class="inline-container">
-                <div class="box">
-                    <h4>CARTA DE RESIDENCIA</h4>
-                    <img src="./assets/img/documento.jpg" width="70px" alt="cartaresidencia">
-					<div class="container-fluid trh">
-						<a href="">Descargar</a>
-					</div>
-                    
-                </div>
-					
-                <div class="box">
-                    <h4>CARTA DE AVAL</h4>
-                    <img src="./assets/img/document_3833815.png" class="rg" width="70px" alt="cartaaval">
-					<div class="container-fluid trw ">
-						<a href="">Descargar</a>
-					</div>
+		<div class="full-width divider-menu-h"></div>
+
+        <section class="full-width header-well">
+			<div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+    
+                  
+                                            
+                    <div class="container mt-5">
+                        <!-- Div con el nombre de usuario -->
+                        <div class="col-12">
+                            <h2 class="text-center perfil">Mi Perfil</h2>
+                            
+                          </div>
+                        <div class="row">
+                          <div class="col-12 gh">
+                            <h3 class="text-left nm">Ashly Torres</h3>
+                            <button class="et mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect " id="btn-addCompany">
+                                <i class="zmdi zmdi-edit"></i>
+
+                            </button>
+                          </div>
+                        </div>
+                      
+                        <!-- Div con el correo electrónico -->
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="email-container">
+                              <div class="email-label">Correo:</div>
+                              <div class="ll">usuario@example.com</div>
+                              
+                            </div>
+                            <div class="email-container">
+                                <div class="email-label">Correo:</div>
+                                <div class="ll">usuario@example.com</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                    
                 </div>
             </div>
-        </section>
+		</section>
+
+
+		
 	</section>
 </body>
 </html>

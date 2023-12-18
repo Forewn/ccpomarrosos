@@ -73,7 +73,7 @@
 						<div class=" p-3 p-lg-5 text-center d-flex align-items-center order-md-last" z-index="0">
 							<div class="text w-100">
 							<br><br>
-							<div class="colorlogin">
+							<div class="colorsi">
 								<h2>Bienvenido nuevamente a nuestra Comunidad</h2>
 								<p>¿Ya posees una cuenta?</p>
 							</div>

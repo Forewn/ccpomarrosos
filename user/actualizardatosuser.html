@@ -149,6 +149,17 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
+						<a href="miperfil.html" class="full-width">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-accounts-alt"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								MI PERFIL
+							</div>
+						</a>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-account"></i>
@@ -300,37 +311,138 @@
 	<section class="full-width pageContent">
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-folder"></i>
+				<i class="zmdi zmdi-account"></i>
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-                    Obtén tus documentos en tiempo real
-                </p>
+					Mantener tus datos personales actualizados es crucial para brindarte la mejor experiencia posible. 				</p>
 			</div>
 		</section>
-		
-        <section class="container cp">
-			
-            <div class="inline-container">
-                <div class="box">
-                    <h4>CARTA DE RESIDENCIA</h4>
-                    <img src="./assets/img/documento.jpg" width="70px" alt="cartaresidencia">
-					<div class="container-fluid trh">
-						<a href="">Descargar</a>
+		<div class="full-width divider-menu-h"></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+				<div class="full-width panel mdl-shadow--2dp">
+					<div class="full-width panel-tittle bg-primary text-center tittles">
+						ACTUALIZACIÓN DE DATOS
 					</div>
-                    
-                </div>
-					
-                <div class="box">
-                    <h4>CARTA DE AVAL</h4>
-                    <img src="./assets/img/document_3833815.png" class="rg" width="70px" alt="cartaaval">
-					<div class="container-fluid trw ">
-						<a href="">Descargar</a>
+					<div class="full-width panel-content">
+						<form>
+							<h5 class="text-condensedLight">Información del Usuario</h5>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+								<label class="mdl-textfield__label" for="carnet">Nombre</label>
+								<span class="mdl-textfield__error">Inválido Nombre</span>
+							</div>
+							<h5 class="text-condensedLight">Información del Usuario</h5>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" pattern="[A-Za-z\s]+" required onpaste="return false;">
+								<label class="mdl-textfield__label" for="carnet">Nombre</label>
+								<span class="mdl-textfield__error">Inválido Nombre</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+								<label class="mdl-textfield__label" for="carnet">Apellido</label>
+								<span class="mdl-textfield__error">Inválido Apellido</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<label  class="mdl-textfield__label" for="addressClient1">Fecha de Nacimiento</label>
+								<input class="mdl-textfield__input" type="date" id="addressClient1" placeholder="">					
+								<span class="mdl-textfield__error">Invalid address</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?">
+								<label class="mdl-textfield__label" for="carnet">Carnet de la Patria</label>
+								<span class="mdl-textfield__error">Inválido Carnet de la Patria</span>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?">
+								<label class="mdl-textfield__label" for="numerotlf">Numero de Teléfono</label>
+								<span class="mdl-textfield__error">Inválido télefono</span>
+							</div>
+
+							<h5 class="text-condensedLight">Ubicación de la Persona</h5>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <select class="mdl-textfield__input">
+                                            <option value="" disabled="" selected="">Seleccionar Calle</option>
+                                            <option value="">Calle 1</option>
+                                            <option value="">Calle 2</option>
+                                        </select>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label  class="mdl-textfield__label" for="addressClient1">Dirección</label>
+                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
+										<span class="mdl-textfield__error">Invalid address</span>
+									</div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label  class="mdl-textfield__label" for="addressClient1">Número de Casa</label>
+                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
+										<span class="mdl-textfield__error">Invalid address</span>
+									</div>
+
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<select class="mdl-textfield__input" id="familyRole" name="familyRole">
+									<option value="" disabled selected></option>
+									<option value="leader">Líder de Familia</option>
+									<option value="son">Hijo</option>
+									<!-- Agrega más roles según sea necesario -->
+								</select>
+								<label class="mdl-textfield__label" for="familyRole">Rol Familiar</label>
+								<span class="mdl-textfield__error">Selecciona un rol</span>
+							</div>
+							
+							
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="email" id="email">
+								<label class="mdl-textfield__label" for="emailCompany">Correo Electrónico</label>
+								<span class="mdl-textfield__error">Inválido Correo</span>
+							</div>
+
+							<h5 class="text-condensedLight">Ideología</h5>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <select class="mdl-textfield__input">
+                                            <option value="" disabled="" selected="">Seleccione el Tipo de Voto</option>
+                                            <option value="">Voto Duro</option>
+                                            <option value="">Voto Blando</option>
+                                            <option value="">Voto Opositor</option>
+                                        </select>
+                                 	</div>
+						
+							<h5 class="text-condensedLight">Información del Cilindro de Gas</h5>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                        <input type="checkbox" class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+                                        <span class="mdl-radio__label">Cilindro de 10kg</span><br>                              
+                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
+                                    </label>
+                                    <br><br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+                                        <span class="mdl-radio__label">Cilindro de 18kg</span><br>                              
+                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
+                                    </label>
+                                    <br><br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+                                        <span class="mdl-radio__label">Cilindro de 27kg</span><br>                              
+                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
+                                    </label>
+                                    <br><br>
+                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+                                        <span class="mdl-radio__label">Cilindro de 43kg</span><br>                              
+                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
+                                    </label>
+							<p class="text-center">
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addCompany">
+									<i class="zmdi zmdi-check"></i>
+
+								</button>
+								<div class="mdl-tooltip" for="btn-addCompany">Enviar</div>
+							</p>
+						</form>
 					</div>
-                   
-                </div>
-            </div>
-        </section>
+				</div>
+			</div>
+		</div>
 	</section>
 </body>
 </html>

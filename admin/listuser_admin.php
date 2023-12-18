@@ -1,3 +1,12 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['id'])){
+		header("Location: ../index.html");
+	}
+	require('../php/conn.php');
+?>
+
 <!-- 
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
 -->
@@ -88,6 +97,7 @@
 	        </a>  
 	    </section>
 	</section>
+	
 	<!-- navBar -->
 	<div class="full-width navBar">
 		<div class="full-width navBar-options">
@@ -104,7 +114,7 @@
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">LogOut</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small><?php echo $_SESSION['name']; ?></small></li>
+					<li class="text-condensedLight noLink" ><small>User Name</small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -194,7 +204,17 @@
 							</a>
 							<ul class="full-width menu-principal sub-menu-options">
 								<li class="full-width">
-									<a href="./agguser_admin.html" class="full-width">
+									<a href="listuser_admin.php" class="full-width">
+										<div class="navLateral-body-cl">
+											<i class="zmdi zmdi-account"></i>
+										</div>
+										<div class="navLateral-body-cr hide-on-tablet">
+											LISTA DE PERSONAS
+										</div>
+									</a>
+								</li>
+								<li class="full-width">
+									<a href="agguser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -204,7 +224,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="./deleteuser_admin.html" class="full-width">
+									<a href="./deleteuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-accounts"></i>
 										</div>
@@ -214,7 +234,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="updateuser_admin.html" class="full-width">
+									<a href="./updateuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -309,33 +329,57 @@
 			</div>
 		</section>
 		<div class="full-width divider-menu-h"></div>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-					<thead>
-						<tr>
-							<th class="mdl-data-table__cell--non-numeric">Cédula</th>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Eliminar</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric">30609563</td>
-							<td>Luis Aron</td>
-							<td>Rojas Porras</td>
-							
-							<td>
-								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-								  <i class="zmdi zmdi-delete"></i>
-								</button>
-							  </td>
-						</tr>						
-					</tbody>
-				</table>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<form class="form-inline my-4">
+						<div class="input-group w-100">
+							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
+							<input  type="submit" id=""><i class="fas fa-search"></i>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
+		<br>
+		<div style="height: 150px; overflow-x: scroll;">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Cédula</th>
+                        <th style="text-align: center;">Nombre</th>
+                        <th style="text-align: center;">Apellido</th>
+                        <th style="text-align: center;">Fecha de Nacimiento</th>
+                        <th style="text-align: center;">Carnet Patria</th>
+                        <th style="text-align: center;">Telefono</th>
+                        <th style="text-align: center;">Rol Familiar</th>
+                        <th style="text-align: center;">Voto</th>
+                        <th style="text-align: center;">Direccion</th>                           
+                    </tr>
+                </thead>
+                <tbody>
+					<?php
+						$sql = "SELECT * FROM tmaper WHERE perNom IS NOT NULL;";
+						$result = mysqli_query($conn, $sql);
+						while($row = mysqli_fetch_array($result)){
+							echo "<tr>";
+							echo "<td class='mdl-data-table__cell--non-numeric'>".$row['perCod']."</td>";
+							echo "<td>".$row['perNom']."</td>";
+							echo "<td>".$row['perNo2']."</td>";
+							echo "<td>".$row['perApe']."</td>";
+							echo "<td>".$row['perFna']."</td>";
+							echo "<td>".$row['perPat']."</td>";
+							echo "<td>".$row['perTel']."</td>";
+							echo "<td>".$row['rolCod']."</td>";
+							echo "<td>".$row['votCod']."</td>";
+							echo "<td>".$row['dirCod']."</td>";
+							echo "<td><button class='mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect'><i class='zmdi zmdi-delete'></i></button></td>";
+							echo "</tr>";
+						}
+					?>					
+                </tbody>
+            </table>
+        </div>
 	</section>
 </body>
 </html>
