@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("formulario").addEventListener('submit', validarFormulario); 
-  });
-  
-  function validarFormulario(evento) {
+});
+
+function validarFormulario(evento) {
     evento.preventDefault();
     var first_name = document.getElementById('nombre').value;
     if(first_name.length == 0) {
-      alert('El nombre es obligatorio');
-      return;
+        alert('El nombre es obligatorio');
+        return;
     }
     var second_name = document.getElementById('nombre2').value;
     if(second_name.length == 0){
@@ -49,4 +49,4 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
     }
     this.submit();
-  }
+}

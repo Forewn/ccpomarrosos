@@ -29,7 +29,7 @@
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
 
-	<!--Archivo que llama el js: Ed 18-12-23-->
+	<!--Archivo que llama el js: Ed y Jesus 18-12-23-->
 	<script src="js/validaragguser.js"></script>
 </head>
 <body>

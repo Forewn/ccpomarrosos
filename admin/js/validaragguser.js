@@ -33,8 +33,8 @@
     });
 /* Fin de validación: Formulario de DNI*/
 
-
 /* Inicio de validación: Formulario de Apellido*/
+
     
 /* Fin de validación: Formulario de Apellido*/
 

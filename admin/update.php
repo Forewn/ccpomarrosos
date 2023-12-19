@@ -5,6 +5,9 @@
 		header("Location: ../index.html");
 	}
 	require('../php/conn.php');
+	if(isset($_POST['error'])){
+		echo "<script>alert('hola')</script>";
+	}
 ?>
 <!-- 
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
@@ -404,7 +407,7 @@
 												$sql = "SELECT * FROM taecal;";
 												$result = mysqli_query($conn, $sql);
 												while($row = mysqli_fetch_array($result)){
-													echo "<option value '". $row['calCod']. "'> Calle ".$row['calCod']. "</option>";
+													echo "<option value='". $row['calCod']."'> Calle ".$row['calCod']."</option>";
 												}
 											?>
                                         </select>
@@ -427,7 +430,7 @@
 												$sql = "SELECT * FROM taevot;";
 												$result = mysqli_query($conn, $sql);
 												while($row = mysqli_fetch_array($result)){
-													echo "<option value '". $row['votCod']. "'>".$row['votTip']. "</option>";
+													echo "<option value='". $row['votCod']. "'>".$row['votTip']. "</option>";
 												}
 											?>
                                         </select>
@@ -440,7 +443,7 @@
 											echo "<label class='mdl-radio mdl-js-radio mdl-js-ripple-effect'>";
 											echo "<input type='checkbox' class='mdl-radio__button' name='".$row['bomNom']."'>";
 											echo "<span class='mdl-radio__label'>Cilindro ".$row['bomNom']."</span><br>";
-											echo "<input placeholder='cantidad' class='mdl-textfield__input' type='text' name=Cant_".$row['bomCod'].">";
+											echo "<input placeholder='cantidad' class='mdl-textfield__input' type='text' name='".$row['bomCod']."'>";
 											echo "</label><br><br>";
 										}
 									?>

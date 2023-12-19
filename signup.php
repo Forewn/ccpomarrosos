@@ -62,7 +62,7 @@
 									<input class="form-control" type="password" placeholder="Contraseña" id="password" name="password">
 									<i class='bx bx-key'></i>
 									<label class="label">Confirmar Contraseña</label>
-									<input class="form-control" type="password" placeholder="Confirmar contraseña" id="verifyPassword">
+									<input class="form-control" type="password" placeholder="Confirmar contraseña" id="password2">
 								</div>
 		            		<div class="form-group">
 								<input type="submit" class="form-control btn-primary rounded submit px-3" value="registrar">
@@ -87,7 +87,7 @@
 	</div>
 </section>
 
-<!-- <script src="js/signup_validation.js"></script> -->
+<script src="js/signup_validation.js"></script> 
 <script src="js/jquery.min.login.js"></script>
 <script src="js/popper.login.js"></script>
 <script src="js/bootstrap.min.login.js"></script>

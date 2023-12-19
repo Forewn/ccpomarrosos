@@ -19,6 +19,17 @@
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	<style>
+		.error
+		{
+			color: #d50000; 
+			font-size: 0.90rem;
+			margin-top: 0.25 rem; 
+			position: absolute;
+			border-bottom-color: #d50000;
+		}
+			
+	</style>
 </head>
 <body>
 	<!-- Notifications area -->
@@ -144,17 +155,6 @@
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								HOME
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="miperfil.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-accounts-alt"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								MI PERFIL
 							</div>
 						</a>
 					</li>
@@ -328,21 +328,16 @@
 					<div class="full-width panel-content">
 						<form>
 							<h5 class="text-condensedLight">Información del Usuario</h5>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
-								<label class="mdl-textfield__label" for="carnet">Nombre</label>
-								<span class="mdl-textfield__error">Inválido Nombre</span>
+							<div  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" id="nombre">								
+								<label class="mdl-textfield__label" for="nombre">Nombre</label>	
+								<span class="error" id="error"></span>				
 							</div>
-							<h5 class="text-condensedLight">Información del Usuario</h5>
+							
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" pattern="[A-Za-z\s]+" required onpaste="return false;">
-								<label class="mdl-textfield__label" for="carnet">Nombre</label>
-								<span class="mdl-textfield__error">Inválido Nombre</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+								<input class="mdl-textfield__input" type="text" id="apellido">
 								<label class="mdl-textfield__label" for="carnet">Apellido</label>
-								<span class="mdl-textfield__error">Inválido Apellido</span>
+								<span class="error" id="error1"></span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<label  class="mdl-textfield__label" for="addressClient1">Fecha de Nacimiento</label>
@@ -350,8 +345,8 @@
 								<span class="mdl-textfield__error">Invalid address</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?">
-								<label class="mdl-textfield__label" for="carnet">Carnet de la Patria</label>
+								<input class="mdl-textfield__input" type="number" minlength="10">
+								<label class="mdl-textfield__label" for="carnet">Serial del Carnet de la Patria</label>
 								<span class="mdl-textfield__error">Inválido Carnet de la Patria</span>
 							</div>
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -445,4 +440,59 @@
 		</div>
 	</section>
 </body>
+<script>
+// ---------------------------------------------------Validación de Nombre---------------------------------
+// Obtener el elemento input por su id
+var inputNombre = document.getElementById("nombre");
+
+// Obtener el elemento span por su id
+var spanError = document.getElementById("error");
+
+// Agregar un evento de input al input
+inputNombre.addEventListener("input", function() {
+  // Obtener el valor del input
+  var valor = inputNombre.value;
+
+  // Crear una expresión regular para validar el nombre
+  // Solo se permiten letras y espacios
+  var regex = /^[a-zA-Z\s]+$/;
+
+  // Comprobar si el valor cumple con la expresión regular
+  var valido = regex.test(valor);
+
+  // Si no es válido, mostrar un mensaje de error en el span
+  if (!valido) {
+    spanError.textContent = "El nombre no puede contener números ni caracteres especiales";
+  } else {
+    // Si es válido, borrar el mensaje de error
+    spanError.textContent = "";
+  }
+});
+
+var inputapellido = document.getElementById("apellido");
+
+// Obtener el elemento span por su id
+var spanError1 = document.getElementById("error1");
+
+// Agregar un evento de input al input
+inputapellido.addEventListener("input", function() {
+  // Obtener el valor del input
+  var valor = inputapellido.value;
+
+  // Crear una expresión regular para validar el nombre
+  // Solo se permiten letras y espacios
+  var regex = /^[a-zA-Z\s]+$/;
+
+  // Comprobar si el valor cumple con la expresión regular
+  var valido = regex.test(valor);
+
+  // Si no es válido, mostrar un mensaje de error en el span
+  if (!valido) {
+    spanError1.textContent = "El nombre no puede contener números ni caracteres especiales";
+  } else {
+    // Si es válido, borrar el mensaje de error
+    spanError1.textContent = "";
+  }
+});
+  </script>
 </html>

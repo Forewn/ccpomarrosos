@@ -4,22 +4,16 @@
         header('Location: ./admin/home.php');
     }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
   	<title>Login 04</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 	<link rel="stylesheet" href="css/login.css">
-
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 	</head>
 	<body>
 	<section class="ftco-section">
@@ -78,6 +72,7 @@
 			</div>
 		</div>
 	</section>
+	<script src="js/login_validation.js"></script>
 	<script src="js/jquery.min.login.js"></script>
   	<script src="js/popper.login.js"></script>
   	<script src="js/bootstrap.min.login.js"></script>

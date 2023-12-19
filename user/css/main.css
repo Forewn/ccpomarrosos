@@ -946,7 +946,7 @@ html, body{
 }
 
 .email-container {
-	display: flex;
+	
 	align-items: center;
 	padding: 7px;
 	font-family: "RobotoCondensedLight";
@@ -956,28 +956,36 @@ html, body{
 	margin-right: 8px;
 	color: rgb(114, 140, 255);
 	
+
+	
+  }
+
+  .cont{
+	padding-bottom: 60px;
   }
 
   .ll{
 	color: rgb(0, 0, 0);
-	background-color: #bebebe9d;
 	border: none;
 	border-radius: 10px;
 	padding: 8px;
+	font-weight: bold;
   }
 
   .perfil{
 	color: rgb(81, 102, 198);
 	font-family: "RobotoCondensedLight";
-	background-color: #afcff3;
 	border-radius: 20px;
+	background-color: #afcff3;
 
   }
 
   .nm{
 	color: rgb(0, 42, 230);
 	font-family: "RobotoCondensedLight";
-	margin-left: 60px;
+	margin-left: 10px;
+	
+
   }
 
   .gh{
@@ -987,14 +995,45 @@ html, body{
 
   .et{
 	position: absolute;
-	left: 250px;
-	top: 28px;
-	width: 40px;
-	height: 35px;
+	left: 400px;
+	top: 24px;
+	height: 45px;
 	font-size: 20px;
 	background-color: #77afe0;
 	color: white;
+	transition: ease-out 0.5s;
+	
 	
   }
 
-  
+  .et:hover{
+	background-color: #2e6da4;
+  }
+
+  .bte{
+	background-color: #007BFF; /* Color de fondo azul */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 10px 20px; /* Ajuste de espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+	transition: 0.5s;
+  }
+
+  .bte:hover {
+    background-color: #0056b3; /* Cambiar color de fondo al pasar el ratón */
+}
+
+.hidden {
+	display: none;
+}
+
+/* Agrega una transición de 0.5 segundos a la propiedad opacity */
+.animated-section {
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.animated-section:not(.hidden) {
+	opacity: 1;
+}

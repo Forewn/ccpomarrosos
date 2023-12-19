@@ -313,42 +313,111 @@
 		<div class="full-width divider-menu-h"></div>
 
         <section class="full-width header-well">
-			<div class="mdl-grid">
+			<div class="mdl-grid cont">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
     
                   
                                             
                     <div class="container mt-5">
+						
                         <!-- Div con el nombre de usuario -->
                         <div class="col-12">
                             <h2 class="text-center perfil">Mi Perfil</h2>
-                            
-                          </div>
+						
+                        </div>
+						<div class=" text-center">
+							<button class="bte text-center" onclick="mostrarSeccion('perfil')">Mostrar Perfil</button>
+							<button class="bte text-center" onclick="mostrarSeccion('direccion')">Mostrar Dirección</button>
+							<button class="bte text-center" onclick="mostrarSeccion('bombona')">Mostrar Bombona</button>
+			
+						</div>
+						 
                         <div class="row">
                           <div class="col-12 gh">
-                            <h3 class="text-left nm">Ashly Torres</h3>
-                            <button class="et mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect " id="btn-addCompany">
-                                <i class="zmdi zmdi-edit"></i>
-
-                            </button>
+                            <h3 class="text-left nm">Ashly Torres hanneiker velandia</h3>
+							<div class="container-fluid et">
+								<a href="actualizar.html">
+								
+									<i class="zmdi zmdi-edit "></i> 
+						
+								</a>
+							</div>
+							
                           </div>
                         </div>
                       
                         <!-- Div con el correo electrónico -->
                         <div class="row">
-                          <div class="col-12">
+
+                          <div class="col-12 perfil-section animated-section">
+							<h3 class="nm">Mis Datos</h3>
                             <div class="email-container">
-                              <div class="email-label">Correo:</div>
-                              <div class="ll">usuario@example.com</div>
-                              
+                              <div class="email-label">Cédula:</div>
+                              <div class="ll">30056463</div>
+                            </div>
+							<div class="email-container">
+                                <div class="email-label">Carnet:</div>
+                                <div class="ll">12344566</div>
+                            </div>
+							<div class="email-container">
+                                <div class="email-label">Fecha de Nacimiento</div>
+                                <div class="ll">16/07/2003</div>
+                            </div>
+							<div class="email-container">
+                                <div class="email-label">Número de Télefono</div>
+                                <div class="ll">0412-6759712</div>
                             </div>
                             <div class="email-container">
                                 <div class="email-label">Correo:</div>
-                                <div class="ll">usuario@example.com</div>
+                                <div class="ll">ashlytorresvelandia@gmail.com</div>
+                            </div>
+							<div class="email-container">
+                                <div class="email-label">Rol Familiar:</div>
+                                <div class="ll">Jefe de Familia</div>
+                            </div>
+							<div class="email-container">
+                                <div class="email-label">Tipo De Voto:</div>
+                                <div class="ll">Duro</div>
                             </div>
                           </div>
                         </div>
                       </div>
+
+							<div class="row">
+								<div class="col-12 direccion-section hidden animated-section">
+									<h3 class="nm">Mi Dirección</h3>
+									<div class="email-container">
+										<div class="email-label">Número de Calle:</div>
+										<div class="ll">L-23</div>
+									</div>
+									<div class="email-container">
+										<div class="email-label">Dirección</div>
+										<div class="ll">Barrio el Lobo, detras de mariankids</div>
+									</div>
+									<div class="email-container">
+										<div class="email-label">Número de Casa</div>
+										<div class="ll">P-3</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-12 bombona-section hidden animated-section">
+									<h3 class="nm">Mi Bombona</h3>
+									<div class="email-container">
+										<div class="email-label">Tipo de Bombona:</div>
+										<div class="ll">18kg</div>
+									</div>
+									<div class="email-container">
+										<div class="email-label">Cantidad:</div>
+										<div class="ll">2</div>
+									</div>
+									
+								</div>
+							</div>
+
+
+					</div>
                       
                    
                 </div>
@@ -358,5 +427,23 @@
 
 		
 	</section>
+
+	<!-- para mostrar las secciones de la pagina -->
+	<script>
+		function mostrarSeccion(seccion) {
+			// Ocultar todas las secciones
+			document.querySelectorAll('.perfil-section, .direccion-section, .bombona-section').forEach(function(el) {
+				el.classList.add('hidden');
+			});
+	
+			// Mostrar la sección seleccionada
+			document.querySelector('.' + seccion + '-section').classList.remove('hidden');
+		}
+
+			// Aplicar clase para la animación
+			setTimeout(function() {
+            selectedSection.classList.add('animated-section');
+        }, 10);
+	</script>
 </body>
 </html>
