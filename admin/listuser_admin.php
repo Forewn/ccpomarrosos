@@ -334,8 +334,10 @@
 				<div class="col-md-6 offset-md-3">
 					<form class="form-inline my-4">
 						<div class="input-group w-100">
-							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
+							<input type="text" class="form-control" id="cedula" placeholder="Ingrese la cédula" aria-label="Buscar" aria-describedby="button-addon2">							
 							<input  type="submit" id=""><i class="fas fa-search"></i>
+							<br>
+							<span class="error" id="error"></span>
 						</div>
 					</form>
 				</div>
@@ -382,4 +384,8 @@
         </div>
 	</section>
 </body>
+<script src="./js/listuser_admin.js"></script>						
+							<input  type="submit" id=""><i class="fas fa-search"></i>
+							<br>
+							<span class="error" id="error"></span>></cript>
 </html>
