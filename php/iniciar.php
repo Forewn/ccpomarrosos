@@ -16,7 +16,12 @@ if(mysqli_num_rows($result) > 0){
     $_SESSION['id'] = $row["perCod"];
     $_SESSION['password'] = $row["perCon"];
     $_SESSION['name'] = $row["perNom"];
-    header("Location: ../admin/home.php");
+    if($row['carCod'] == 2){
+      header("Location: ../user/home.php");
+    }
+    else{
+      header("Location: ../admin/home.php");
+    }
   }
   else{
     mysqli_close($conn);

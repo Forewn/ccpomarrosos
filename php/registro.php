@@ -13,14 +13,15 @@
     $result = mysqli_query($conn, $sql);
     
     if(mysqli_num_rows($result) > 0){
-        $sql1 = "UPDATE tmaper SET perCon = '$id', perNom = '$first_name', perNo2 = '$second_name', perApe = '$last_name', perTid = '$tipo_documento', perCor = '$email', perCon = '$password' WHERE perCod = '$id';";
+        $sql1 = "UPDATE tmaper SET perCon = '$id', perNom = '$first_name', perNo2 = '$second_name', perApe = '$last_name', perTid = '$tipo_documento', perCor = '$email', perCon = '$password', carCod = 2 WHERE perCod = '$id';";
         $result1 = mysqli_query($conn, $sql1);
         if($result1){
             session_start();
             $_SESSION['id'] = $id;
             $_SESSION['name'] = $first_name;
             $_SESSION['password'] = $password;
-            header('Location: ../admin/home.php');
+            $_SESSION['cargo'] = $row['carCod'];
+            header('Location: ../user/home.php');
         }
         else{
             header('Location: ../signup.php');

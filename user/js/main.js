@@ -29,16 +29,17 @@ $(document).ready(function(){
     /*Salir del sistema*/
     $('.btn-exit').on('click', function(){
     	swal({
-		  	title: 'You want out of the system?',
-		 	text: "The current session will be closed and will leave the system",
+		  	title: 'Desea cerrar sesion?',
+		 	text: "Cualquier cambio que no haya guardado podría perderse",
 		  	type: 'warning',
 		  	showCancelButton: true,
-		  	confirmButtonText: 'Yes, exit',
-		  	closeOnConfirm: false
+		  	confirmButtonText: 'Si, salir',
+		  	closeOnConfirm: false,
+			cancelButtonText: 'Cancelar'
 		},
 		function(isConfirm) {
 		  	if (isConfirm) {
-		    	window.location='index.html'; 
+		    	window.location='../php/logout.php'; 
 		  	}
 		});
     });
