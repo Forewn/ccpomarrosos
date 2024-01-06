@@ -1,10 +1,17 @@
 <?php
 	session_start();
+	require_once('../php/conn.php');
 
 	if(!isset($_SESSION['id'])){
 		header("Location: ../index.html");
 	}
-	require('../php/conn.php');
+
+	$sql =  "SELECT * FROM tmaper;";
+	$sql2 = "SELECT * FROM tmaper WHERE perNom IS NOT NULL;";
+	$sql3 = "SELECT * FROM tmaper WHERE carCod = 1;";
+	$admin = mysqli_num_rows(mysqli_query($conn, $sql3));
+	$cedulas = mysqli_num_rows(mysqli_query($conn, $sql));
+	$usuarios = mysqli_num_rows(mysqli_query($conn, $sql2));
 ?>
 
 <!-- 
@@ -125,11 +132,11 @@
 		</div>
 	</div>
 	<!-- navLateral -->
-		<section class="full-width navLateral">
+	<section class="full-width navLateral">
 			<div class="full-width navLateral-bg btn-menu"></div>
 			<div class="full-width navLateral-body">
 				<div class="full-width navLateral-body-logo text-center tittles">
-					<i class="zmdi zmdi-close btn-menu"></i> Inventory 
+					<i class="zmdi zmdi-close btn-menu"></i>  
 				</div>
 				<figure class="full-width" style="height: 77px;">
 					<div class="navLateral-body-cl">
@@ -159,41 +166,19 @@
 						</li>
 						<li class="full-width divider-menu-h"></li>
 						<li class="full-width">
-							<a href="#!" class="full-width btn-subMenu">
+							<a href="./generardocumentos.php" class="full-width btn-subMenu">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-case"></i>
 								</div>
 								<div class="navLateral-body-cr hide-on-tablet">
-									USUARIOS
+									GENERAR DOCUMENTOS
 								</div>
-								<span class="zmdi zmdi-chevron-left"></span>
-							</a>
-							<ul class="full-width menu-principal sub-menu-options">
-								<li class="full-width">
-									<a href="update.php" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-balance"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											ACTUALIZACIÓN DE DATOS
-										</div>
-									</a>
-								</li>
-								<li class="full-width">
-									<a href="providers.html" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-truck"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											GENERAR DOCUMENTOS
-										</div>
-									</a>
-								</li>
-							</ul>
+								
+							</a>							
 						</li>
 						<li class="full-width divider-menu-h"></li>
 						<li class="full-width">
-							<a href="#!" class="full-width btn-subMenu">
+							<a href="#" class="full-width btn-subMenu">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-face"></i>
 								</div>
@@ -204,7 +189,7 @@
 							</a>
 							<ul class="full-width menu-principal sub-menu-options">
 								<li class="full-width">
-									<a href="listuser_admin.php" class="full-width">
+									<a href="./listuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -214,7 +199,7 @@
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="agguser_admin.php" class="full-width">
+									<a href="./agguser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -229,7 +214,7 @@
 											<i class="zmdi zmdi-accounts"></i>
 										</div>
 										<div class="navLateral-body-cr hide-on-tablet">
-											ELIMINAR DATOS
+											ELIMINAR PERSONA
 										</div>
 									</a>
 								</li>
@@ -274,7 +259,7 @@
 									<i class="zmdi zmdi-store"></i>
 								</div>
 								<div class="navLateral-body-cr hide-on-tablet">
-									INVENTORY
+									POMARRROSOS
 								</div>
 							</a>
 						</li>

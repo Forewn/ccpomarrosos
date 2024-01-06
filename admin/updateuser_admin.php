@@ -1,3 +1,18 @@
+<?php
+	session_start();
+	require_once('../php/conn.php');
+
+	if(!isset($_SESSION['id'])){
+		header("Location: ../index.html");
+	}
+
+	$sql =  "SELECT * FROM tmaper;";
+	$sql2 = "SELECT * FROM tmaper WHERE perNom IS NOT NULL;";
+	$sql3 = "SELECT * FROM tmaper WHERE carCod = 1;";
+	$admin = mysqli_num_rows(mysqli_query($conn, $sql3));
+	$cedulas = mysqli_num_rows(mysqli_query($conn, $sql));
+	$usuarios = mysqli_num_rows(mysqli_query($conn, $sql2));
+?>
 <!-- 
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
 -->
@@ -6,7 +21,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inventory</title>
+	<title>Agregar Datos</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -88,7 +103,6 @@
 	        </a>  
 	    </section>
 	</section>
-	
 	<!-- navBar -->
 	<div class="full-width navBar">
 		<div class="full-width navBar-options">
@@ -116,11 +130,11 @@
 		</div>
 	</div>
 	<!-- navLateral -->
-		<section class="full-width navLateral">
+	<section class="full-width navLateral">
 			<div class="full-width navLateral-bg btn-menu"></div>
 			<div class="full-width navLateral-body">
 				<div class="full-width navLateral-body-logo text-center tittles">
-					<i class="zmdi zmdi-close btn-menu"></i> Inventory 
+					<i class="zmdi zmdi-close btn-menu"></i>  
 				</div>
 				<figure class="full-width" style="height: 77px;">
 					<div class="navLateral-body-cl">
@@ -150,41 +164,19 @@
 						</li>
 						<li class="full-width divider-menu-h"></li>
 						<li class="full-width">
-							<a href="#!" class="full-width btn-subMenu">
+							<a href="./generardocumentos.php" class="full-width btn-subMenu">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-case"></i>
 								</div>
 								<div class="navLateral-body-cr hide-on-tablet">
-									USUARIOS
+									GENERAR DOCUMENTOS
 								</div>
-								<span class="zmdi zmdi-chevron-left"></span>
-							</a>
-							<ul class="full-width menu-principal sub-menu-options">
-								<li class="full-width">
-									<a href="update.php" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-balance"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											ACTUALIZACIÓN DE DATOS
-										</div>
-									</a>
-								</li>
-								<li class="full-width">
-									<a href="providers.html" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-truck"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											GENERAR DOCUMENTOS
-										</div>
-									</a>
-								</li>
-							</ul>
+								
+							</a>							
 						</li>
 						<li class="full-width divider-menu-h"></li>
 						<li class="full-width">
-							<a href="#!" class="full-width btn-subMenu">
+							<a href="#" class="full-width btn-subMenu">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-face"></i>
 								</div>
@@ -195,7 +187,17 @@
 							</a>
 							<ul class="full-width menu-principal sub-menu-options">
 								<li class="full-width">
-									<a href="agguser_admin.php" class="full-width">
+									<a href="./listuser_admin.php" class="full-width">
+										<div class="navLateral-body-cl">
+											<i class="zmdi zmdi-account"></i>
+										</div>
+										<div class="navLateral-body-cr hide-on-tablet">
+											LISTA DE PERSONAS
+										</div>
+									</a>
+								</li>
+								<li class="full-width">
+									<a href="./agguser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>
@@ -210,7 +212,7 @@
 											<i class="zmdi zmdi-accounts"></i>
 										</div>
 										<div class="navLateral-body-cr hide-on-tablet">
-											ELIMINAR DATOS
+											ELIMINAR PERSONA
 										</div>
 									</a>
 								</li>
@@ -255,7 +257,7 @@
 									<i class="zmdi zmdi-store"></i>
 								</div>
 								<div class="navLateral-body-cr hide-on-tablet">
-									INVENTORY
+									POMARRROSOS
 								</div>
 							</a>
 						</li>
@@ -301,54 +303,141 @@
 	<section class="full-width pageContent">
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-store"></i>
+				<i class="zmdi zmdi-accounts"></i>
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
+					Mantener tus datos personales actualizados es crucial para brindarte la mejor experiencia posible.
 				</p>
-			</div>
+				</div>
 		</section>
 		<div class="full-width divider-menu-h"></div>
 		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<div class="container">
-					<div class="row">
-					  <div class="col-md-6 offset-md-3">
-						<form class="form-inline my-4">
-						  <div class="input-group w-100">
-							<input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="button-addon2">
-							
-							<input  type="submit" id=""><i class="fas fa-search"></i>
-						  </div>
-						</form>
-					  </div>
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+				<div class="full-width panel mdl-shadow--2dp">
+					<div class="full-width panel-tittle bg-primary text-center tittles">
+						ACTUALIZACIÓN DE DATOS
 					</div>
-				  </div>
-				  <br>
-				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-					<thead>
-						<tr>
-							<th class="mdl-data-table__cell--non-numeric">Cédula</th>
-							<th>Nombre</th>
-							<th>Apellido</th>
-							<th>Actualizar</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="mdl-data-table__cell--non-numeric">30609563</td>
-							<td>Luis Aron</td>
-							<td>Rojas Porras</td>
-							
-							<td>
-                                
-                                    <a style="color: green;" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="./update2user_admin.html"><i class="zmdi zmdi-refresh"></i></a>	                              
-                            </td>
-						</tr>						
-					</tbody>
-				</table>
+					<div class="full-width panel-content">
+								<form action="php/updatedata.php" method="post">
+									<h5 class="text-condensedLight">Datos de Persona</h5>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient" name="id">
+										<label class="mdl-textfield__label" for="DNIClient">Cédula de Identidad</label>
+										<span class="mdl-textfield__error">Invalid number</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" name="first_name">
+										<label class="mdl-textfield__label" for="NameClient">Nombre</label>
+										<span class="mdl-textfield__error">Invalid name</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" name="second_name">
+										<label class="mdl-textfield__label" for="NameClient">Segundo Nombre</label>
+										<span class="mdl-textfield__error">Invalid name</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameClient" name="last_name">
+										<label class="mdl-textfield__label" for="LastNameClient">Apellido</label>
+										<span class="mdl-textfield__error">Invalid last name</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label  class="mdl-textfield__label" for="addressClient1">Fecha de Nacimiento</label>
+                                        <input class="mdl-textfield__input" type="date" id="addressClient1" name="fna">					
+										<span class="mdl-textfield__error">Invalid address</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="text" id="addressClient2" name="Carnet">
+										<label class="mdl-textfield__label" for="addressClient2">Serial Carnet de la Patria</label>
+										<span class="mdl-textfield__error">Invalid address</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient" name="phone">
+										<label class="mdl-textfield__label" for="phoneClient">Teléfono</label>
+										<span class="mdl-textfield__error">Invalid phone number</span>
+									</div>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="email" id="emailClient" name="email">
+										<label class="mdl-textfield__label" for="emailClient">E-mail</label>
+										<span class="mdl-textfield__error">Invalid E-mail</span>
+									</div>
+									<h5 class="text-condensedLight">Rol Familiar</h5>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <select class="mdl-textfield__input" name="rol">
+                                            <option value="" disabled="" selected="">Seleccionar el Tipo de Rol</option>
+                                            <?php
+												$sql = "SELECT * FROM taerol;";
+												$result = mysqli_query($conn, $sql);
+												while($row = mysqli_fetch_array($result)){
+													echo "<option value '". $row['rolCod']. "'>".$row['rolNom']. "</option>";
+												}
+											?>
+                                        </select>
+                                    </div>
+
+
+                                    <h5 class="text-condensedLight">Ubicación de la Persona</h5>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <select class="mdl-textfield__input" name="calle">
+                                            <option value="" disabled="" selected="">Seleccionar Calle</option>
+                                            <?php
+												$sql = "SELECT * FROM taecal;";
+												$result = mysqli_query($conn, $sql);
+												while($row = mysqli_fetch_array($result)){
+													echo "<option value='". $row['calCod']."'> Calle ".$row['calCod']."</option>";
+												}
+											?>
+                                        </select>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label  class="mdl-textfield__label" for="addressClient1">Dirección</label>
+                                        <input class="mdl-textfield__input" type="text" id="addressClient1" name="direccion">					
+										<span class="mdl-textfield__error">Invalid address</span>
+									</div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<label  class="mdl-textfield__label" for="addressClient1">Número de Casa</label>
+                                        <input class="mdl-textfield__input" type="text" id="addressClient1" name="n_casa">					
+										<span class="mdl-textfield__error">Invalid address</span>
+									</div>                                 
+                                    <h5 class="text-condensedLight">Ideología</h5>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <select class="mdl-textfield__input" name="voto">
+                                            <option value="NULL">Seleccione el Tipo de Voto</option>
+                                            <?php
+												$sql = "SELECT * FROM taevot;";
+												$result = mysqli_query($conn, $sql);
+												while($row = mysqli_fetch_array($result)){
+													echo "<option value='". $row['votCod']. "'>".$row['votTip']. "</option>";
+												}
+											?>
+                                        </select>
+                                    </div>
+                                    <h5 class="text-condensedLight">Información del Cilindro de Gas</h5>
+									<?php
+										$sql = "SELECT * FROM taebom;";
+										$result = mysqli_query($conn, $sql);
+										while($row = mysqli_fetch_array($result)){
+											echo "<label class='mdl-radio mdl-js-radio mdl-js-ripple-effect'>";
+											echo "<input type='checkbox' class='mdl-radio__button' name='".$row['bomNom']."'>";
+											echo "<span class='mdl-radio__label'>Cilindro ".$row['bomNom']."</span><br>";
+											echo "<input placeholder='cantidad' class='mdl-textfield__input' type='text' name='".$row['bomCod']."'>";
+											echo "</label><br><br>";
+										}
+									?>
+                                    
+                                    <p class="text-center">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
+											<i class="zmdi zmdi-plus"></i>
+										</button>
+										<div class="mdl-tooltip" for="btn-addClient">Add client</div>
+									</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			
 		</div>
 	</section>
 </body>

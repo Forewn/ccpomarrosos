@@ -993,22 +993,29 @@ html, body{
 	position: relative;
   }
 
-  .et{
-	position: absolute;
-	left: 400px;
-	top: 24px;
-	height: 45px;
-	font-size: 20px;
-	background-color: #77afe0;
-	color: white;
-	transition: ease-out 0.5s;
-	
-	
-  }
+  .edit-link {
+    display: block;
+    text-align: center;
+    padding: 27px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
 
-  .et:hover{
-	background-color: #2e6da4;
-  }
+
+
+.edit-link i {
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.5s;
+	background-color: #007bff; /* Puedes cambiar el color de fondo según tu preferencia */
+}
+
+.edit-link i:hover{
+	background-color: #0056b3;
+}
+
 
   .bte{
 	background-color: #007BFF; /* Color de fondo azul */

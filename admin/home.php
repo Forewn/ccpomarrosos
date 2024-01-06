@@ -164,41 +164,19 @@
 						</li>
 						<li class="full-width divider-menu-h"></li>
 						<li class="full-width">
-							<a href="#!" class="full-width btn-subMenu">
+							<a href="./generardocumentos.php" class="full-width btn-subMenu">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-case"></i>
 								</div>
 								<div class="navLateral-body-cr hide-on-tablet">
-									USUARIOS
+									GENERAR DOCUMENTOS
 								</div>
-								<span class="zmdi zmdi-chevron-left"></span>
-							</a>
-							<ul class="full-width menu-principal sub-menu-options">
-								<li class="full-width">
-									<a href="update.php" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-balance"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											ACTUALIZACIÓN DE DATOS
-										</div>
-									</a>
-								</li>
-								<li class="full-width">
-									<a href="providers.html" class="full-width">
-										<div class="navLateral-body-cl">
-											<i class="zmdi zmdi-truck"></i>
-										</div>
-										<div class="navLateral-body-cr hide-on-tablet">
-											GENERAR DOCUMENTOS
-										</div>
-									</a>
-								</li>
-							</ul>
+								
+							</a>							
 						</li>
 						<li class="full-width divider-menu-h"></li>
 						<li class="full-width">
-							<a href="#!" class="full-width btn-subMenu">
+							<a href="#" class="full-width btn-subMenu">
 								<div class="navLateral-body-cl">
 									<i class="zmdi zmdi-face"></i>
 								</div>
@@ -234,12 +212,12 @@
 											<i class="zmdi zmdi-accounts"></i>
 										</div>
 										<div class="navLateral-body-cr hide-on-tablet">
-											ELIMINAR DATOS
+											ELIMINAR PERSONA
 										</div>
 									</a>
 								</li>
 								<li class="full-width">
-									<a href="./updateuser_admin.php" class="full-width"></a>
+									<a href="./updateuser_admin.php" class="full-width">
 										<div class="navLateral-body-cl">
 											<i class="zmdi zmdi-account"></i>
 										</div>

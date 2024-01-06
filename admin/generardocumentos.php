@@ -13,31 +13,25 @@
 	$cedulas = mysqli_num_rows(mysqli_query($conn, $sql));
 	$usuarios = mysqli_num_rows(mysqli_query($conn, $sql2));
 ?>
-
-<!-- 
-* Copyright 2016 Carlos Eduardo Alfaro Orellana
--->
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Agregar Datos</title>
+	<title>Actualización de Datos</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
 	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
 	<script src="js/material.min.js" ></script>
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
-
-	<!--Archivo que llama el js: Ed y Jesus 18-12-23-->
-	<script src="js/validaragguser.js"></script>
 </head>
 <body>
 	<!-- Notifications area -->
@@ -307,139 +301,38 @@
 	<section class="full-width pageContent">
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-plus"></i>
+				<i class="zmdi zmdi-folder"></i>
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde aut nulla accusantium minus corporis accusamus fuga harum natus molestias necessitatibus.
-				</p>
+                    Obtén tus documentos en tiempo real
+                </p>
 			</div>
 		</section>
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <section class="container cp">
 			
-			<div class="mdl-tabs__panel is-active" id="tabNewClient">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-						<div class="full-width panel mdl-shadow--2dp">
-							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Nuevo Censo
-							</div>
-							<div class="full-width panel-content">
-								<form>
-									<h5 class="text-condensedLight">Datos de Persona</h5>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient">
-										<label class="mdl-textfield__label" for="DNIClient">Cédula de Identidad</label>
-										<span class="mdl-textfield__error">Invalid number</span>
-									</div>
-									<h5 class="text-condensedLight">Información del Usuario</h5>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="[A-Za-z\s]+" required onpaste="return false;">
-										<label class="mdl-textfield__label" for="carnet">Nombre</label>
-										<span class="mdl-textfield__error">Inválido Nombre</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameClient">
-										<label class="mdl-textfield__label" for="LastNameClient">Apellido</label>
-										<span class="mdl-textfield__error">Invalid last name</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Fecha de Nacimiento</label>
-                                        <input class="mdl-textfield__input" type="date" id="addressClient1" placeholder="">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" id="addressClient2">
-										<label class="mdl-textfield__label" for="addressClient2">Serial Carnet de la Patria</label>
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient">
-										<label class="mdl-textfield__label" for="phoneClient">Teléfono</label>
-										<span class="mdl-textfield__error">Invalid phone number</span>
-									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="email" id="emailClient">
-										<label class="mdl-textfield__label" for="emailClient">E-mail</label>
-										<span class="mdl-textfield__error">Invalid E-mail</span>
-									</div>
-									<h5 class="text-condensedLight">Rol Familiar</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccionar el Tipo de Rol</option>
-                                            <option value="">Padre</option>
-                                            <option value="">Madre</option>
-                                        </select>
-                                    </div>
-
-
-                                    <h5 class="text-condensedLight">Ubicación de la Persona</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccionar Calle</option>
-                                            <option value="">Calle 1</option>
-                                            <option value="">Calle 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Dirección</label>
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Número de Casa</label>
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>                                 
-                                    <h5 class="text-condensedLight">Ideología</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccione el Tipo de Voto</option>
-                                            <option value="">Voto Duro</option>
-                                            <option value="">Voto Blando</option>
-                                            <option value="">Voto Opositor</option>
-                                        </select>
-                                    </div>
-                                    <h5 class="text-condensedLight">Información del Cilindro de Gas</h5>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox" class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 10kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 18kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 27kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 43kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    
-                                    <p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
-											<i class="zmdi zmdi-check"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addClient">Add client</div>
-									</p>
-								</form>
-							</div>
-						</div>
+            <div class="inline-container">
+                <div class="box">
+                    <h4>CARTA DE RESIDENCIA</h4>
+                    <img src="./assets/img/documento.jpg" width="70px" alt="cartaresidencia">
+					<div class="container-fluid trh">
+						<a href="#!" onclick="openResidencyModal('')">Descargar</a>
 					</div>
-				</div>
-			</div>
-			
-		</div>
+                    
+                </div>
+					
+                <div class="box">
+                    <h4>CARTA DE AVAL</h4>
+                    <img src="./assets/img/documento.jpg" class="rg" width="70px" alt="cartaaval">
+					<div class="container-fluid trw ">
+						<a href="">Descargar</a>
+					</div>
+                   
+                </div>
+            </div>
+        </section>
 	</section>
+
+	<script src="./js/documents.js"></script>
 </body>
 </html>

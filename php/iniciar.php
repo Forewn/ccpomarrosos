@@ -16,6 +16,7 @@ if(mysqli_num_rows($result) > 0){
     $_SESSION['id'] = $row["perCod"];
     $_SESSION['password'] = $row["perCon"];
     $_SESSION['name'] = $row["perNom"];
+    $_SESSION['cargo'] = $row['carCod'];
     if($row['carCod'] == 2){
       header("Location: ../user/home.php");
     }

@@ -1,7 +1,13 @@
 <?php
     session_start();
     if(isset($_SESSION['id'])){
-        header('Location: ./admin/home.php');
+		if($_SESSION['cargo'] == 1){
+			header('Location: ./admin/home.php');
+		}
+		else{
+			header('Location: ./user/home.php');
+		}
+        
     }
 ?>
 <!doctype html>
