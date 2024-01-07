@@ -324,115 +324,115 @@
 							<div class="full-width panel-tittle bg-primary text-center tittles">
 								Nuevo Censo
 							</div>
-							<div class="full-width panel-content">
-								<form>
-									<h5 class="text-condensedLight">Datos de Persona</h5>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient">
-										<label class="mdl-textfield__label" for="DNIClient">Cédula de Identidad</label>
-										<span class="mdl-textfield__error">Invalid number</span>
-									</div>
+							<!--Modificaciones hechas el 05-01-2024: Ajustes a todo el formulario de ingreso y validaciones en el JS. Inicio del Bloque Modificado-->
+							<form>
 									<h5 class="text-condensedLight">Información del Usuario</h5>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="[A-Za-z\s]+" required onpaste="return false;">
-										<label class="mdl-textfield__label" for="carnet">Nombre</label>
-										<span class="mdl-textfield__error">Inválido Nombre</span>
+									<div  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="text" id="nombre">								
+										<label class="mdl-textfield__label" for="nombre">Nombre</label>	
+										<span class="error" id="error"></span>				
 									</div>
+									
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameClient">
-										<label class="mdl-textfield__label" for="LastNameClient">Apellido</label>
-										<span class="mdl-textfield__error">Invalid last name</span>
+										<input class="mdl-textfield__input" type="text" id="apellido">
+										<label class="mdl-textfield__label" for="carnet">Apellido</label>
+										<span class="error" id="error1"></span>
 									</div>
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label  class="mdl-textfield__label" for="addressClient1">Fecha de Nacimiento</label>
-                                        <input class="mdl-textfield__input" type="date" id="addressClient1" placeholder="">					
+										<input class="mdl-textfield__input" type="date" id="addressClient1" placeholder="">					
 										<span class="mdl-textfield__error">Invalid address</span>
 									</div>
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" id="addressClient2">
-										<label class="mdl-textfield__label" for="addressClient2">Serial Carnet de la Patria</label>
-										<span class="mdl-textfield__error">Invalid address</span>
+										<input class="mdl-textfield__input" type="number" id="serial">
+										<label class="mdl-textfield__label" for="carnet">Serial del Carnet de la Patria</label>
+										<span class="error" id="error2"></span>
 									</div>
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient">
-										<label class="mdl-textfield__label" for="phoneClient">Teléfono</label>
-										<span class="mdl-textfield__error">Invalid phone number</span>
+										<input class="mdl-textfield__input" type="tel" id="telefono">
+										<label class="mdl-textfield__label" for="numerotlf">Número de Teléfono</label>
+										<span class="error" id="error3"></span>
 									</div>
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="email" id="emailClient">
-										<label class="mdl-textfield__label" for="emailClient">E-mail</label>
-										<span class="mdl-textfield__error">Invalid E-mail</span>
-									</div>
-									<h5 class="text-condensedLight">Rol Familiar</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccionar el Tipo de Rol</option>
-                                            <option value="">Padre</option>
-                                            <option value="">Madre</option>
-                                        </select>
-                                    </div>
 
+									<h5 class="text-condensedLight">Ubicación de la Persona</h5>
+											<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input">
+													<option value="" disabled="" selected="">Seleccionar Calle</option>
+													<option value="">Calle 1</option>
+													<option value="">Calle 2</option>
+												</select>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<label  class="mdl-textfield__label" for="addressClient1">Dirección</label>
+												<input class="mdl-textfield__input" type="text" id="addressClient1">					
+												<span class="mdl-textfield__error">Invalid address</span>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<label  class="mdl-textfield__label" for="addressClient1">Número de Casa</label>
+												<input class="mdl-textfield__input" type="text" id="addressClient1">					
+												<span class="mdl-textfield__error">Invalid address</span>
+											</div>
 
-                                    <h5 class="text-condensedLight">Ubicación de la Persona</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccionar Calle</option>
-                                            <option value="">Calle 1</option>
-                                            <option value="">Calle 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Dirección</label>
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
-										<span class="mdl-textfield__error">Invalid address</span>
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<select class="mdl-textfield__input" id="familyRole" name="familyRole">
+											<option value="" disabled selected></option>
+											<option value="leader">Líder de Familia</option>
+											<option value="son">Hijo</option>
+											<!-- Agrega más roles según sea necesario -->
+										</select>
+										<label class="mdl-textfield__label" for="familyRole">Rol Familiar</label>
+										<span class="mdl-textfield__error">Selecciona un rol</span>
 									</div>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label  class="mdl-textfield__label" for="addressClient1">Número de Casa</label>
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">					
-										<span class="mdl-textfield__error">Invalid address</span>
-									</div>                                 
-                                    <h5 class="text-condensedLight">Ideología</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Seleccione el Tipo de Voto</option>
-                                            <option value="">Voto Duro</option>
-                                            <option value="">Voto Blando</option>
-                                            <option value="">Voto Opositor</option>
-                                        </select>
-                                    </div>
-                                    <h5 class="text-condensedLight">Información del Cilindro de Gas</h5>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox" class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 10kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 18kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 27kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
-                                        <input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
-                                        <span class="mdl-radio__label">Cilindro de 43kg</span><br>                              
-                                        <input placeholder="cantidad" class="mdl-textfield__input" type="text">
-                                    </label>
-                                    <br><br>
-                                    
-                                    <p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
+									
+									
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="email" id="correo">
+										<label class="mdl-textfield__label" for="emailCompany">Correo Electrónico</label>
+										<span class="error" id="error4"></span>
+									</div>
+
+									<h5 class="text-condensedLight">Ideología</h5>
+											<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input">
+													<option value="" disabled="" selected="">Seleccione el Tipo de Voto</option>
+													<option value="">Voto Duro</option>
+													<option value="">Voto Blando</option>
+													<option value="">Voto Opositor</option>
+												</select>
+								       	</div>
+								
+									<h5 class="text-condensedLight">Información del Cilindro de Gas</h5>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+												<input type="checkbox" class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+												<span class="mdl-radio__label">Cilindro de 10kg</span><br>                              
+												<input placeholder="cantidad" class="mdl-textfield__input" type="text">
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+												<input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+												<span class="mdl-radio__label">Cilindro de 18kg</span><br>                              
+												<input placeholder="cantidad" class="mdl-textfield__input" type="text">
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+												<input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+												<span class="mdl-radio__label">Cilindro de 27kg</span><br>                              
+												<input placeholder="cantidad" class="mdl-textfield__input" type="text">
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" >
+												<input type="checkbox"  class="mdl-radio__button" name="options" value="avatar-male.png">                                  
+												<span class="mdl-radio__label">Cilindro de 43kg</span><br>                              
+												<input placeholder="cantidad" class="mdl-textfield__input" type="text">
+											</label>
+									<p class="text-center">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addCompany">
 											<i class="zmdi zmdi-check"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addClient">Add client</div>
+										<div class="mdl-tooltip" for="btn-addCompany">Enviar</div>
 									</p>
 								</form>
+								<!--Modificaciones hechas el 05-01-2024: Fin del bloque modificado.-->
 							</div>
 						</div>
 					</div>

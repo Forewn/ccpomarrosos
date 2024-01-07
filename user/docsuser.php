@@ -114,199 +114,79 @@
 			</nav>
 		</div>
 	</div>
-	<!-- navLateral -->
+
+	<!-- INICIO DEL PANEL DE NAVEGACIÓN -->
 	<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
-				<i class="zmdi zmdi-close btn-menu"></i> Inventory 
+				<i class="zmdi zmdi-close btn-menu"></i> Pagina de Usuario
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
 					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
-					<!-- <span>
-						<?php echo $_SESSION['name']; ?><br>
-						<small>Admin</small>
-					</span> -->
+					<span>
+						Full Name user<br>
+						<small>user</small>
+					</span>
 				</figcaption>
 			</figure>
 			<div class="full-width tittles navLateral-body-tittle-menu">
-				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; DASHBOARD</span>
+					<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; PANEL</span>
+				</div>
+				<nav class="full-width">
+					<ul class="full-width list-unstyle menu-principal">
+						<li class="full-width">
+							<a href="home.php" class="full-width">
+								<div class="navLateral-body-cl">
+									<i class="zmdi zmdi-view-dashboard"></i>
+								</div>
+								<div class="navLateral-body-cr hide-on-tablet">
+									INICIO
+								</div>
+							</a>
+						</li>
+						<li class="full-width divider-menu-h"></li>
+						<li class="full-width">
+							<a href="actualizardatosuser.php" class="full-width">
+								<div class="navLateral-body-cl">
+									<i class="zmdi zmdi-washing-machine"></i>
+								</div>
+								<div class="navLateral-body-cr hide-on-tablet">
+									ACTUALIZAR DATOS
+								</div>
+							</a>
+						</li>
+						<li class="full-width divider-menu-h"></li>
+						<li class="full-width">
+							<a href="docsuser.php" class="full-width">
+								<div class="navLateral-body-cl">
+									<i class="zmdi zmdi-shopping-cart"></i>
+								</div>
+								<div class="navLateral-body-cr hide-on-tablet">
+									DOCUMENTOS
+								</div>
+							</a>
+						</li>
+						<li class="full-width divider-menu-h"></li>
+						<li class="full-width">
+							<a href="miperfil.php" class="full-width">
+								<div class="navLateral-body-cl">
+									<i class="zmdi zmdi-shopping-cart"></i>
+								</div>
+								<div class="navLateral-body-cr hide-on-tablet">
+									MI PERFIL
+								</div>
+							</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="full-width">
-				<ul class="full-width list-unstyle menu-principal">
-					<li class="full-width">
-						<a href="home.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-view-dashboard"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								HOME
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="miperfil.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-accounts-alt"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								MI PERFIL
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-account"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								MI CUENTA
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="actualizar.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts-alt"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ACTUALIZACIÓN DE DATOS
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="documentos.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-folder"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										GENERAR DOCUMENTOS
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-face"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								CENSO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="agregardatos.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										AGREGAR DATOS
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="eliminardatos.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ELIMINAR DATOS
-									</div>
-								</a>
-							</li>
-                            <li class="full-width">
-								<a href="admin.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ACTUALIZAR DATOS
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="products.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-washing-machine"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								PRODUCTS
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="sales.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-shopping-cart"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								SALES
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="inventory.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								INVENTORY
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-wrench"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								SETTINGS
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="#!" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-widgets"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										OPTION
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="#!" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-widgets"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										OPTION
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</section>
+		</section>
+		<!--FIN PANEL DE NAVEGACIÓN-->
+		
 	<!-- pageContent -->
 	<section class="full-width pageContent">
 		<section class="full-width header-well">

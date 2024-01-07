@@ -1,113 +1,128 @@
-//27-12-23: Ed... Validaciones de js para el archivo: agguser_admin.php
+//Validaciones agregar usuario 05-01-2024
 
-document.getElementById('btn-addClient').addEventListener('click', function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe automáticamente
-    
-    // Realiza las validaciones
-    var isValid = validateForm();
+// Obtener el elemento input por su id
+var inputNombre = document.getElementById("nombre");
 
-    // Si todas las validaciones son exitosas, puedes enviar el formulario
-    if (isValid) {
-        // Aquí puedes agregar la lógica para enviar los datos a la base de datos
-        alert('Formulario válido. ¡Datos enviados!');
-    }
+// Obtener el elemento span por su id
+var spanError = document.getElementById("error");
+
+// Agregar un evento de input al input
+inputNombre.addEventListener("input", function() {
+  // Obtener el valor del input
+  var valor = inputNombre.value;
+
+  // Crear una expresión regular para validar el nombre
+  // Solo se permiten letras y espacios
+  var regex = /^[a-zA-Z\s]+$/;
+
+  // Comprobar si el valor cumple con la expresión regular
+  var valido = regex.test(valor);
+
+  // Si no es válido, mostrar un mensaje de error en el span
+  if (!valido) {
+    spanError.textContent = "El nombre no puede contener números ni caracteres especiales";
+  } else {
+    // Si es válido, borrar el mensaje de error
+    spanError.textContent = "";
+  }
+});
+// ---------------------------------------------------Validación de Apellido---------------------------------
+var inputapellido = document.getElementById("apellido");
+
+// Obtener el elemento span por su id
+var spanError1 = document.getElementById("error1");
+
+// Agregar un evento de input al input
+inputapellido.addEventListener("input", function() {
+  // Obtener el valor del input
+  var valor = inputapellido.value;
+
+  // Crear una expresión regular para validar el nombre
+  // Solo se permiten letras y espacios
+  var regex = /^[a-zA-Z\s]+$/;
+
+  // Comprobar si el valor cumple con la expresión regular
+  var valido = regex.test(valor);
+
+  // Si no es válido, mostrar un mensaje de error en el span
+  if (!valido) {
+    spanError1.textContent = "El apellido no puede contener números ni caracteres especiales";
+  } else {
+    // Si es válido, borrar el mensaje de error
+    spanError1.textContent = "";
+  }
+});
+// ---------------------------------------------------Validación de Serial---------------------------------
+var inputserial = document.getElementById("serial");
+
+// Obtener el elemento span por su id
+var spanError2 = document.getElementById("error2");
+
+// Agregar un evento de input al input
+inputserial.addEventListener("input", function() 
+{
+  // Obtener el valor del input
+  var valor = inputserial.value;
+
+
+  // Si no es válido, mostrar un mensaje de error en el span
+  if (valor > 9999999999) 
+  {
+    spanError2.textContent = "El serial es invalido. Por favor, ingrese un serial de 10 digitos";
+  } else {
+    // Si es válido, borrar el mensaje de error
+    spanError2.textContent = "";
+  }
 });
 
-function validateForm() {
-    var isValid = true;
+// ---------------------------------------------------Validación de telefono---------------------------------
+let inputTel = document.getElementById("telefono");
+var spanError3 = document.getElementById("error3");
 
-    // Validación de la cédula de identidad
-    var dniClient = document.getElementById('DNIClient').value;
-    if (!/^\d{1,8}$/.test(dniClient)) {
-        alert('Cédula de identidad inválida. Debe contener solo números y no puede ser mayor a 8 dígitos.');
-        isValid = false;
-    }
+// Definir la expresión regular que solo acepta números y el signo +
+let regexTel = /^\+?[0-9]+$/;
 
-    // Validación del nombre
-    var nameClient = document.getElementById('NameClient').value;
-    if (!/^[A-Za-záéíóúÁÉÍÓÚ ]{1,50}$/.test(nameClient)) {
-        alert('Nombre inválido. Debe contener solo letras y no puede ser mayor a 50 caracteres.');
-        isValid = false;
-    }
+// Agregar un listener al evento input del input
+inputTel.addEventListener("input", function() {
+  // Obtener el valor del input
+  let valor = inputTel.value;
+  var valido = regexTel.test(valor)
+  // Verificar si el valor cumple con la expresión regular
+  if (!valido || valor.length > 13  || valor.length < 13 ) 
+  {    
+    spanError3.textContent = "El teléfono es invalido. Por favor, ingrese un número telefónico correcto";
+	if (!valido)
+  	{
+		spanError3.textContent = "El teléfono es invalido. Por favor, ingrese un número telefónico sin letras";
+  	}	
+  } 
+  else 
+  {    
+    spanError3.textContent = "";
+  }
+  
+});
+// Agregar un listener al evento focus del campo
+inputTel.addEventListener("focus", function() {
+  // Obtener el valor del campo
+  let valor = inputTel.value;
+  // Verificar si el valor termina con "@gmail.com"
+  if (!valor.endsWith("+58")) {
+    // Si no termina, agregar el texto "@gmail.com" al final
+    inputTel.value = "+58" + valor;
+  }
+});
 
-    // Validación del apellido
-    var lastNameClient = document.getElementById('LastNameClient').value;
-    if (!/^[A-Za-záéíóúÁÉÍÓÚ ]{1,50}$/.test(lastNameClient)) {
-        alert('Apellido inválido. Debe contener solo letras y no puede ser mayor a 50 caracteres.');
-        isValid = false;
-    }
-
-    // Validación de la fecha de nacimiento
-    var birthDateClient = document.getElementById('addressClient1').value;
-    if (birthDateClient === '') {
-        alert('Fecha de nacimiento inválida. Debe ser seleccionada.');
-        isValid = false;
-    }
-
-    // Validación del Serial del Carnet de la Patria
-    var carnetPatria = document.getElementById('addressClient2').value;
-    if (carnetPatria.trim() === '') {
-        alert('Serial del Carnet de la Patria no puede estar vacío.');
-        isValid = false;
-    }
-
-    // Validación del Teléfono
-    var phoneClient = document.getElementById('phoneClient').value;
-    if (!/^\d{1,12}$/.test(phoneClient)) {
-        alert('Teléfono inválido. Debe contener solo números y no puede ser mayor a 12 dígitos.');
-        isValid = false;
-    }
-
-    // Validación del Email
-    var emailClient = document.getElementById('emailClient').value;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailClient)) {
-        alert('Email inválido. Debe tener un formato válido.');
-        isValid = false;
-    }
-
-    // Validación del Rol Familiar
-    var roleFamiliar = document.querySelector('select[name="roleFamiliar"]').value;
-    if (roleFamiliar === '') {
-        alert('Debe seleccionar el Rol Familiar.');
-        isValid = false;
-    }
-
-    // Validación de la Ubicación de la Persona
-    var locationPerson = document.querySelector('select[name="locationPerson"]').value;
-    if (locationPerson === '') {
-        alert('Debe seleccionar la Ubicación de la Persona.');
-        isValid = false;
-    }
-
-    // Validación de la Dirección
-    var addressClient = document.getElementById('addressClient1').value;
-    if (addressClient.trim() === '') {
-        alert('Dirección no puede estar vacía.');
-        isValid = false;
-    }
-
-    // Validación del Número de Casa
-    var houseNumberClient = document.getElementById('addressClient1').value;
-    if (houseNumberClient.trim() === '') {
-        alert('Número de Casa no puede estar vacío.');
-        isValid = false;
-    }
-
-    // Validación de la Ideología
-    var ideologyClient = document.querySelector('select[name="ideologyClient"]').value;
-    if (ideologyClient === '') {
-        alert('Debe seleccionar la Ideología.');
-        isValid = false;
-    }
-
-    // Validación de la Información del Cilindro de Gas
-    var gasCylinderInfo = document.querySelectorAll('input[name="gasCylinder"]:checked').length;
-    if (gasCylinderInfo === 0) {
-        alert('Debe seleccionar al menos un cilindro de gas.');
-        isValid = false;
-    }
-
-    // Puedes agregar más validaciones según sea necesario
-    
-    return isValid;
-}
+// ---------------------------------------------------Validación de Correo---------------------------------
+let inputEmail = document.getElementById("correo");
+var spanError4 = document.getElementById("error4");
+// Agregar un listener al evento focus del campo
+inputEmail.addEventListener("focus", function() {
+  // Obtener el valor del campo
+  let valor = inputEmail.value;
+  // Verificar si el valor termina con "@gmail.com"
+  if (!valor.endsWith("@gmail.com")) {
+    // Si no termina, agregar el texto "@gmail.com" al final
+    inputEmail.value = valor + "@gmail.com";
+  }
+});

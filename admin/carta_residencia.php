@@ -51,7 +51,8 @@ class PDF extends FPDF
 
     function body(){
         require('../php/conn.php');
-        $id = $_SESSION['id'];
+        $id = $_GET['id'];
+        $motivo = $_GET['solicitud'];
         $sql = "SELECT * FROM tmaper where perCod = $id";
         $persona = mysqli_fetch_array(mysqli_query($conn, $sql));
         
@@ -67,7 +68,7 @@ class PDF extends FPDF
         $direccion = mysqli_fetch_array(mysqli_query($conn, $sql));
         $casa = $direccion['dirNca'];
         $calle = $direccion['calCod'];
-        $text = "Nosotros los abajo firmantes, voceros y voceras del Colectivo de Gobierno Comunal \"LOS POMARROSOS\" ubicado en el sector del Barrio El Lobo, parroquia San Juan Bautista, municipio San Cristobal, estado Táchira y de acuerdo a las atribuciones que nos confiere la Ley Orgánica de los Consejos Comunales, hacemos constar que el ciudadano(a):".$nombre." de nacionalidad: ".$tipo_cedula.", titular de la Cédula de Identidad Nº: ".$cedula." con ".$years." años de residencia fija en esta comunidad, ubicada en la siguiente dirección: calle ".$calle." nº de casa: ".$casa." Números de teléfono móvil: ".$telefono." y residencial: ".$telefono_casa.". Motivo de solicitud: ________________________________________________________________________________________________________________________________________________________________________________ Constancia que se expide a solicitud de parte interesada en San Cristóbal a los 21 días del mes diciembre del año 2023, caduca a los 90 días de su emisión.";
+        $text = "Nosotros los abajo firmantes, voceros y voceras del Colectivo de Gobierno Comunal \"LOS POMARROSOS\" ubicado en el sector del Barrio El Lobo, parroquia San Juan Bautista, municipio San Cristobal, estado Táchira y de acuerdo a las atribuciones que nos confiere la Ley Orgánica de los Consejos Comunales, hacemos constar que el ciudadano(a):".$nombre." de nacionalidad: ".$tipo_cedula.", titular de la Cédula de Identidad Nº: ".$cedula." con ".$years." años de residencia fija en esta comunidad, ubicada en la siguiente dirección: calle ".$calle." nº de casa: ".$casa." Números de teléfono móvil: ".$telefono." y residencial: ".$telefono_casa.". Motivo de solicitud: ".$motivo." Constancia que se expide a solicitud de parte interesada en San Cristóbal a los 21 días del mes diciembre del año 2023, caduca a los 90 días de su emisión.";
 
         $this->SetFont('Times', '', 12);
         $this->MultiCell(190, 8, utf8_decode($text));

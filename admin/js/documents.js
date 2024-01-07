@@ -1,29 +1,45 @@
-function openResidencyModal(citizen) {
+function openResidencyModal(citizen, citizenid) {
     swal({
       title: "Datos del solicitante",
       html: `
         <form>
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--9-col">
-              <input type="text" class="mdl-textfield__input" disabled placeholder="Solicitante" value="`+citizen+`">
+              <input type="text" id="solicitante" class="mdl-textfield__input" disabled placeholder="Solicitante" value="`+citizen+`" required>
             </div>
             <div class="mdl-cell mdl-cell--3-col">
               <a href="#!" class="mdl-button mdl-button--colored mdl-button--info mdl-js-button mdl-js-ripple-effect" onclick="selectCitizen()">
                 <i class="material-symbols-outlined">filter_list</i>
-              </a>
+              </a> 
             </div>
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <textarea class="mdl-textfield__input" type="text" id="addressClient2"></textarea>
-            <label class="mdl-textfield__label" for="addressClient2">Motivo de solicitud</label>
-            <span class="mdl-textfield__error">Invalid address</span>
+            <textarea class="mdl-textfield__input" type="text" id="motivo" required></textarea>
+            <label class="mdl-textfield__label" for="motivo">Motivo de solicitud</label>
+            <span class="mdl-textfield__error">motivo invalido</span>
           </div>
         </form>
       `
-    })
+    },
+    function(isConfirm) {
+      if (isConfirm) {
+        if(document.getElementById('solicitante').value != ""){
+          if(document.getElementById('motivo').value != ""){
+          
+            window.location= `./carta_residencia.php?id=${citizenid}&solicitud=${document.getElementById('motivo').value}`; 
+          }
+          else{
+            alert('El motivo de su solicitud es obligatorio');
+          }
+        }
+        else{
+          alert('Es obligatorio indicar los datos del solicitante');
+        }
+      }
+    });
   }
-  
 
+  
 function selectCitizen(){
     swal({
         title: "Seleccionar solicitante:",
@@ -35,12 +51,12 @@ function selectCitizen(){
                 <input class="mdl-textfield__input cell--9-col" type="text" id="searchInput" style='border: 1px blue;' oninput="doSearch(this)">
             </div>
             <div class="mdl-cell mdl-cell--3-col">
-                <a href='#!' class="mdl-button mdl-js-button mdl-button--icon cell-3-col" onclick="doSearch(this)">
+                <a href='#!' value="" class="mdl-button mdl-js-button mdl-button--icon cell-3-col" onclick="doSearch(document.getElementById('searchInput'))">
                     <i class="material-symbols-outlined">search</i>
                 </a>
             </div>
         </div>
-        <div style="height: 150px; overflow-x: scroll;">
+        <div style="max-height: 60vh; overflow-x: scroll;">
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                 <thead>
                     <tr>
@@ -49,14 +65,7 @@ function selectCitizen(){
                     </tr>
                 </thead>
                 <tbody id="lista">
-                    <tr>
-                        <td style="text-align: center;">Jhosmar</td>
-                        <td style="text-align: center;">Suarez</td>
-                    </tr>
-                    <tr>
-                    <td style="text-align: center;">Jhosmar</td>
-                    <td style="text-align: center;">Suarez</td>
-                    </tr>		
+                    	
                 </tbody>
             </table>
         </div>
@@ -70,7 +79,25 @@ function doSearch(input){
     request.open('POST', './php/searchCitizen.php');
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.onload = function(){
-        console.log(request.responseText);
+        table = buildTable(JSON.parse(request.responseText));
+        lista.innerHTML = table;
     }
     request.send("nombre="+input.value);
+}
+
+function buildTable(data) {
+  var string = "";
+  data.forEach(persona => {
+    string += "<tr data-persona='" + JSON.stringify(persona) + "' onclick='saveData(this)'>";
+    string += "<td>" + persona.first_name + " " + persona.second_name + "</td>";
+    string += "<td>" + persona.last_name + "</td>";
+    string += "</tr>";
+  });
+
+  return string;
+}
+
+function saveData(row){
+  var data = JSON.parse(row.dataset.persona)
+  openResidencyModal(data.first_name, data.id);
 }
