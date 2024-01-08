@@ -1,3 +1,25 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["id"])) {
+		session_destroy();
+		header("location: ../index.html");
+	}
+
+	require "../php/conn.php";
+
+	// Obtener datos del usuario
+	$userId = $_SESSION["id"];
+	$query = "SELECT * FROM tmaper WHERE perCod = $userId"; 
+		$result = mysqli_query($conn, $query);
+
+	if ($result) {
+		$userData = mysqli_fetch_assoc($result);
+	} else {
+		// Manejar el error según tus necesidades
+		die("Error al obtener los datos del usuario");
+	}
+?>
+
 <!-- 
 * Copyright 2016 Carlos Eduardo Alfaro Orellana
 -->
@@ -243,7 +265,7 @@
 							<h3 class="nm">Mis Datos</h3>
                             <div class="email-container">
                               <div class="email-label">Cédula:</div>
-                              <div class="ll">30056463</div>
+                              <div class="ll"><?php echo $userData['perCod']; ?></div>
                             </div>
 							<div class="email-container">
                                 <div class="email-label">Carnet:</div>

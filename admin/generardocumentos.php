@@ -325,7 +325,7 @@
                     <h4>CARTA DE AVAL</h4>
                     <img src="./assets/img/documento.jpg" class="rg" width="70px" alt="cartaaval">
 					<div class="container-fluid trw ">
-						<a href="">Descargar</a>
+						<a href="#!" onclick="openAvalModal('')">Descargar</a>
 					</div>
                    
                 </div>

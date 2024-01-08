@@ -329,19 +329,21 @@
 			</div>
 		</div>
 		<br>
-		<div style="height: 150px; overflow-x: scroll;">
+		<div style=" overflow-x: scroll;">
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                 <thead>
                     <tr>
                         <th style="text-align: center;">Cédula</th>
                         <th style="text-align: center;">Nombre</th>
+						<th style="text-align: center;">Segundo nombre</th>
                         <th style="text-align: center;">Apellido</th>
                         <th style="text-align: center;">Fecha de Nacimiento</th>
                         <th style="text-align: center;">Carnet Patria</th>
                         <th style="text-align: center;">Telefono</th>
                         <th style="text-align: center;">Rol Familiar</th>
                         <th style="text-align: center;">Voto</th>
-                        <th style="text-align: center;">Direccion</th>                           
+                        <th style="text-align: center;">Direccion</th>
+						<th style="text-align: center;">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
